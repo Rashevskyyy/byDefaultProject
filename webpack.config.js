@@ -2,7 +2,7 @@ let path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'; // проверка режима разработки, будет возвращать true если совпало
 const isProd = !isDev; // проверка режима разработки, будет возвращать true если предыдущее false
@@ -13,8 +13,10 @@ const filename = (ext) => isDev ? `[name].${ext}` : `[name].[contenthash].${ext}
 module.exports = {
     mode: 'development',
     entry:  {
-        main: './src/frontend/js/script.js',
-        module: './src/frontend/mods/welcome.js'
+        home: './src/frontend/js/script.js',
+        createAccount: './src/frontend/js/createAccount.js',
+        signIn: './src/frontend/js/signIn.js',
+        mainPage: './src/frontend/js/mainPage.js',
     },
     output: {
         filename: `./src/js/${filename('js')}`, // генерация названия файлов из функции
@@ -37,12 +39,34 @@ module.exports = {
     },
 
     plugins: [
+        new CleanWebpackPlugin(),  // очистка старых файлов, подгрузка новых
         new MiniCssExtractPlugin({
-           filename: `./src/scss/${filename('css')}`
+           filename: `./src/scss/${filename('css')}`,
         }),
         new HTMLPlugin({   
             filename: 'index.html',
             template: './src/frontend/index.html',  // путь к файлу html
+            minify: {
+                collapseWhitespace: isProd,  // в режиме продакшена уберуться все пробелы для сжатия проекта
+            },
+        }),
+        new HTMLPlugin({   
+            filename: 'createAccount.html',
+            template: './src/frontend/createAccount.html',  // путь к файлу html
+            minify: {
+                collapseWhitespace: isProd,  // в режиме продакшена уберуться все пробелы для сжатия проекта
+            },
+        }),
+        new HTMLPlugin({   
+            filename: 'signIn.html',
+            template: './src/frontend/signIn.html',  // путь к файлу html
+            minify: {
+                collapseWhitespace: isProd,  // в режиме продакшена уберуться все пробелы для сжатия проекта
+            },
+        }),
+        new HTMLPlugin({   
+            filename: 'mainPage.html',
+            template: './src/frontend/mainPage.html',  // путь к файлу html
             minify: {
                 collapseWhitespace: isProd,  // в режиме продакшена уберуться все пробелы для сжатия проекта
             },
@@ -53,7 +77,6 @@ module.exports = {
         new CopyPlugin({
             patterns: [{from:'./src/frontend/fonts', to: './src/fonts'}]    // копируем шрифты
         }),
-        new CleanWebpackPlugin(),  // очистка старых файлов, подгрузка новых
     ],
     
     devtool: isProd ? false : 'source-map',   // в режиме разработки показывает где записана та или иная строка в исходном коде

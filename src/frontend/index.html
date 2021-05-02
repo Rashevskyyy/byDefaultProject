@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <!-- <link rel="stylesheet" href="../css/homePage.css">
-    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/header.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
     <div class="container">
         <div class="container__name block">
             <div class="block__left">
-                <img class="block__left-logo" src="img/header-logo.png">
+                <img class="block__left-logo" src="./img/header-logo.png">
                 <h2 class="block__left-name">ByDefault</h2>  
             </div>
             <div class="block__right">
                 <div class="dropdown">
-                    <button class="dropbtn" onclick="myFunction()" id="localization-switch">
+                    <a href="./createAccount.html">NEXT</a>
+                    <button class="dropbtn" id="localization-switch">
                         En
                     </button>
                     <div class="dropdown-content" id="myDropdown">
@@ -27,8 +28,7 @@
                         <a href="#">English</a>
                     </div>
                 </div>
-                <button class="topic"></button> 
-                
+                <button class="topic"><img class="topic" src="./img/header-light-mode-logo.png" alt=""></button> 
             </div>
         </div>
     </div>
@@ -40,7 +40,5 @@
 <footer>
 
 </footer>
-<!-- 
-<script src="../script/localization.js"></script> -->
 </body>
 </html>
