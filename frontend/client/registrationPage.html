@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing in</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="container__name block">
+                <div class="block__left">
+                    <div class="block__left--logo"></div>
+                    <h2 class="block__left--name">ByDefault</h2>  
+                </div>
+                <a href="./mainPage.html">NEXT</a>
+                <div class="block__right container-dropdwn">
+                    <div class="container-dropdwn__dropdown">
+                        <button class="dropbtn btn" id="localization-switch">
+                            En
+                        </button>
+                        <div class="dropdown-content " id="dropdown-languages">
+                            <button class="dropdown-content btn-modal">Russian</button>
+                            <hr>
+                            <button class="dropdown-content btn-modal">English</button>
+                        </div>
+                    </div>
+                    <button class="topic btn"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container-form">
+            <div class="container-form__sign">
+                REGISTRATION
+            </div>
+            <div class="container-form__input-name">
+                LOGIN
+            </div>
+            <div class="container-form__input">
+                <input class="input__field" id="UserNameInput_SignUp" placeholder="Login">
+            </div>
+            <div class="container-form__input-name">
+                PASSWORD
+            </div>
+            <div class="container-form__input">
+                <input class="input__field" id="PasswordInput_SignUp" type="password" placeholder="Password">
+                <button class="input__field--show-password"  id="show-password"></button>
+                <!--<i class="far fa-eye" id="togglePassword"></i>-->
+                
+            </div>
+            <div class="container-form__input-name">
+                CONFIRM PASSWORD
+            </div>
+            <div class="container-form__input">
+                <input class="input__field" id="ConfirmPasswordInput" type="password" placeholder="Confirm password">
+            </div>
+            <div class="container-form__button">
+                <button id="SignUpButton" >Sign Up</button>
+            </div>
+            <div class="container-form__lastWords">
+                Already Registered <a href="./autorizationPage.html">Sign In</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="block-footer">
+            <p class="block-footer__text">ByDefault project</p>
+            <div class="block-footer--line-vertival"></div>
+            <p class="block-footer__text">2021</p>
+        </div>
+    </footer>
+</body>
+</html>

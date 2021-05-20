@@ -6,17 +6,21 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    login: [
+    start: [
+        "@babel/polyfill",
+        path.resolve(__dirname, "./frontend/logic/logicPage/index.js"),
+      ],
+    autorization: [
       "@babel/polyfill",
-      path.resolve(__dirname, "./frontend/logicPages/authLogic.js"),
+      path.resolve(__dirname, "./frontend/logic/logicPage/autorizationPage.js"),
     ],
     registration: [
       "@babel/polyfill",
-      path.resolve(__dirname, "./frontend/logicPages/registrLogic.js"),
+      path.resolve(__dirname, "./frontend/logic/logicPage/registrationPage.js"),
     ],
     main: [
       "@babel/polyfill",
-      path.resolve(__dirname, "./frontend/logicPages/mainLogic.js"),
+      path.resolve(__dirname, "./frontend/logic/logicPage/mainPage.js"),
     ],
   },
   output: {
@@ -30,25 +34,30 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "frontend/client/index.html",
-      filename: "index.html",
-      chunks: ["login"],
+        template: "./frontend/client/index.html",
+        filename: "index.html",
+        chunks: ["start"],
+      }),
+    new HtmlWebpackPlugin({
+      template: "./frontend/client/autorizationPage.html",
+      filename: "autorizationPage.html",
+      chunks: ["autorization"],
     }),
     new HtmlWebpackPlugin({
-      template: "frontend/client/mainPage.html",
+        template: "./frontend/client/registrationPage.html",
+        filename: "registrationPage.html",
+        chunks: ["registration"],
+      }),
+    new HtmlWebpackPlugin({
+      template: "./frontend/client/mainPage.html",
       filename: "mainPage.html",
       chunks: ["main"],
-    }),
-    new HtmlWebpackPlugin({
-      template: "frontend/client/registrPage.html",
-      filename: "registrPage.html",
-      chunks: ["registration"],
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "frontend/style/img/", to: "dist/style/img" }],
+      patterns: [{ from: "frontend/img/", to: "dist/img" }],
     }),
   ],
   module: {
@@ -78,4 +87,4 @@ module.exports = {
       },
     ],
   },
-};
+}

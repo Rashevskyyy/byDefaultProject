@@ -1,0 +1,80 @@
+@import './variables';
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: $primary-font-size;
+    color: $primary-color-btn;
+    user-select: none;
+}
+body{
+    background: $primary-color-bg;
+}
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+hr{
+    border: none; 
+    background-color: $primary-color-line; 
+    height: 1px; 
+}
+input::placeholder{
+    font-size: 18px;
+    color: rgba(143, 143, 143, 0.3);
+}
+a{
+    color: cornflowerblue;
+}
+.project-name{
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+    margin: 60px auto 20px;
+    color: white;
+    font-size: 50px;
+}
+.welcome, .to-by-def{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    width: 550px;
+    font-size: 75px;
+    margin: auto;
+    text-align: center;
+}
+
+.to-by-def{
+    font-size: 60px;
+}
+
+.buttons{
+    margin: 40px auto;
+    text-align: center;
+}
+
+.signIn-button, .register-button{
+    height: 35px;
+    width: 120px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 17px;
+    padding: 7px;
+}
+
+#SignInButton_HomePage{
+    background: #C51655;
+}
+
+#RegisterButton{
+    background: #13C9E2;
+}
+
+.signIn-button:hover, .register-button:hover{
+    box-shadow: 0px 4px 4px white;
+    transition: 0.4s;
+}
