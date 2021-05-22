@@ -46,12 +46,12 @@
                 <h2 class="window-password__modal-password__container--name">Change Password</h2>
                 <label class="window-password__modal-password__container--lbl elem">old password</label>
                 <div class="window-password__modal-password__container__block" >
-                    <input class="window-password__modal-password__container__block--inpt elem-inpt" id="password-input-old" type="password" minlength="6" maxlength="25" placeholder="Entry you old password">
+                    <input class="window-password__modal-password__container__block--inpt elem-inpt" id="password-input-old" type="password" minlength="6" maxlength="25" placeholder="Enter you old password...">
                     <button class="window-password__modal-password__container__block--show-password"  id="show-password-old"></button>
                 </div>
                 <label class="window-password__modal-password__container--lbl elem">New password</label>
                 <div class="window-password__modal-password__container__block">
-                    <input class="window-password__modal-password__container__block--inpt elem-inpt" id="password-input-new" type="password" minlength="6" maxlength="25" placeholder="Entry you new password">
+                    <input class="window-password__modal-password__container__block--inpt elem-inpt" id="password-input-new" type="password" minlength="6" maxlength="25" placeholder="Enter you new password...">
                     <button class="window-password__modal-password__container__block--show-password" id="show-password-new"></button>
                 </div>
                
@@ -66,9 +66,32 @@
             <div class="window-login__modal-login__container">
               <h2 class="window-login__modal-login__container--name">Change login</h2>
               <label class="window-login__modal-login__container--lbl elem">NEw login</label>
-              <input class="window-login__modal-login__container--inpt elem" placeholder="New login" minlength="3" maxlength="25">
+              <input class="window-login__modal-login__container--inpt elem" placeholder="Enter new login..." minlength="3" maxlength="25">
               <button class="window-login__modal-login__container--btn elem">Confirm</button>
               <button class="window-login__modal-login__container--link" id="exit-login">Exit</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-create" id="modal-window-create">
+        <div class="modal-create__modal">
+            <div class="modal-create__modal--img" id="close-create">&#10006;</div>
+            <div class="modal-create__modal__container">
+              <h2 class="modal-create__modal__container--name">Create</h2>
+              <label class="modal-create__modal__container--lbl elem-create">First name*</label>
+              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter first name...">
+              <label class="modal-create__modal__container--lbl elem-create">Last name*</label>
+              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter last name...">
+              <label class="modal-create__modal__container--lbl elem-create">Age*</label>
+              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter age...">
+              <label class="modal-create__modal__container--lbl elem-create">city*</label>
+              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter city...">
+              <label class="modal-create__modal__container--lbl elem-create">phone</label>
+              <input class="modal-create__modal__container--inpt elem-create" placeholder="+380yyxxxxxxx">
+              <label class="modal-create__modal__container--lbl elem-create">email</label>
+              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter email...">
+              <label class="modal-create__modal__container--lbl elem-create">Company</label>
+              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter company...">
+              <button class="modal-create__modal__container--btn elem-create">Create</button>
             </div>
         </div>
     </div>
@@ -119,9 +142,9 @@
         <div class="content__block--right block">
             <div class="block__main">
                 <div class="block__main--panel panel">
-                    <button class="panel__btn --create">Create <div class="panel__btn--create icons-btn"></div></button>
+                    <button class="panel__btn --create" id="create">Create <div class="panel__btn--create icons-btn"></div></button>
                     <button class="panel__btn --update">Update <div class="panel__btn--update icons-btn"></div></button>
-                    <button class="panel__btn --delete">Delete <div class="panel__btn--delete icons-btn"></div></button>
+                    <button class="panel__btn --delete" id="delete-btn">Delete <div class="panel__btn--delete icons-btn"></div></button>
                     <button class="panel__btn --clear" id="clear-all">ClearAll <div class="panel__btn--clear-all icons-btn"></div></button>
                     <div class="panel__search">
                         <form>
@@ -155,7 +178,7 @@
                         <div class="table__main__item small">ff</div>
                         <div class="table__main__item">ff</div>
                         <div class="table__main__item">ff</div>
-                        <div class="table__main__item">ff<div class="delete-item"></div></div>
+                        <div class="table__main__item">ff<div class="delete-persons"></div></div>
                     </div>
                     <div class="table__main">
                         <div class="table__main__item --left-bottom small"></div>
@@ -165,7 +188,7 @@
                         <div class="table__main__item small"></div>
                         <div class="table__main__item"></div>
                         <div class="table__main__item"></div>
-                        <div class="table__main__item --right-bottom"><div class="delete-item"></div></div> 
+                        <div class="table__main__item --right-bottom"><div class="delete-persons"></div></div> 
                     </div>
                 </div>
             </div>

@@ -172,6 +172,72 @@
         }
     }
 }
+.modal-create{
+    position: fixed;
+    display: flex;
+    width: 80%;
+    height: 590px;
+    top: 90px;
+    left: 10%;
+    background: rgba($color:$primary-color-bg, $alpha: 0.6);
+    opacity: 0;
+    visibility: hidden;
+    &__modal{
+        width: 50vh;
+        height: 77vh;
+        margin: auto;
+        background: $color-modal-window-bg;
+        border-radius: 8px;
+        &--img{
+            width: 20px;
+            height: 20px;
+            float: right;
+            margin: 2% 2% 0 0;
+            cursor: pointer;
+        }
+        &__container{
+            width: 90%;
+            height: 80%;
+            margin: 5% auto;
+            &--name{
+                text-align: center;
+                text-transform: uppercase;
+                font-size: xx-large;
+            }
+            &--lbl{
+                width: 90%;
+                //margin: 3% auto 0 auto;
+                font-size: 14px;
+                line-height: 16px;
+                text-transform: uppercase;
+                color: $color-modal-window-lbl;
+            }
+            &--inpt{
+                font-size: 18px;
+                border: none;
+                outline: none;
+                background: $color-modal-window-inpt-bg;
+                box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.5) inset;
+                border-radius: 10px;
+                padding: 1%;
+            }
+            &--btn{
+                height: 40px;
+                border-radius: 3px;
+                color: black;
+                font-size: 24px;
+                background: $color-modal-window-btn;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                cursor: pointer;
+            }
+        }
+    }
+}
+.elem-create{
+    width: 90%;
+    margin: 3% auto 0 auto;
+    display: block;
+}
 .modal-clear{
     position: fixed;
     display: flex;
@@ -233,8 +299,7 @@
     margin: 4% auto 0 auto;
     display: block;
 }
-
-.show-modal-clear{
+.show-modal-btns{
     opacity: 1;
     visibility: visible;
 }

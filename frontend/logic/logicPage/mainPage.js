@@ -1,9 +1,11 @@
-//import '../../client/mainPage.html';
-//import '../../scss/header.scss';
+
 import '../../scss/homePage.scss';
-import '../../scss/mainPage.scss';
 import '../helpers/btnClearAll';
-import '../header/localization'; //
+import '../helpers/btnDelete';
+import '../../scss/mainPage.scss';
+
+import '../helpers/btnCreate';
+import '../header/localization';
 import '../header/modalWindow';
 import '../helpers/showPassword';
 

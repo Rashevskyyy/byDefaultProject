@@ -211,14 +211,16 @@
     .small{
         width: 7%;
     }
-    .delete-item{
-        display: none;
+    .delete-persons{
         width: 12px;
         height: 12px;
-        cursor: pointer;
         float: right;
         margin: -5% 7%;
     }
+}
+.show-btn-delete{
+    cursor: pointer;
+    background: url(../img/delete.png) no-repeat;
 }
 
 
