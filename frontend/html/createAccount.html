@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="header__logo">
+            <img src="../img/header-logo.png">
+        </div>
+        <div class="header__team-name">
+            ByDefault
+        </div>
+        <div class="header__localization-switch" id="localization-switch">
+            En
+        </div>
+        <div class="header__light-mode-switch" id="mode-switch">
+            <img src="../img/header-light-mode-logo.png">
+        </div>
+    </div>
+</header>
+<main class="main">
+    <div class="container">
+        <div class="container__sign">
+            REGISTRATION
+        </div>
+        <div class="container__input-name">
+            LOGIN
+        </div>
+        <div class="container__input">
+            <input class="input__field" id="UserNameInput_SignUp" placeholder="Enter your login...">
+            <div class="error_validation" id="usernameError">error</div>
+        </div>
+        <div class="container__input-name">
+            PASSWORD
+        </div>
+        <div class="container__input">
+            <input class="input__field" id="PasswordInput_SignUp" type="password" placeholder="Enter your password...">
+            <i class="far fa-eye" id="togglePassword"></i>
+            <div class="error_validation" id="passwordError">error</div>
+        </div>
+        <div class="container__input-name">
+            CONFIRM PASSWORD
+        </div>
+        <div class="container__input">
+            <input class="input__field" id="ConfirmPasswordInput" type="password" placeholder="Confirm your password...">
+            <div class="error_validation" id="confirmPasswordError">error</div>
+        </div>
+        <div class="container__button">
+            <button id="SignUpButton" >Sign Up</button>
+        </div>
+        <div class="container__lastWords">
+            Already Registered? <a href="signIn.html">Sign In</a>
+        </div>
+    </div>
+</main>
+<footer> </footer>
+<script>
+    const usernameSignUp = document.getElementById("UserNameInput_SignUp").value;
+    const passwordSignUp = document.getElementById("PasswordInput_SignUp").value;
+    const confirmPassword = document.getElementById("ConfirmPasswordInput").value;
+    const usernameError = document.getElementById("usernameError");
+    const passwordError = document.getElementById("passwordError");
+    const confirmPasswordError = document.getElementById("confirmPasswordError");
+    const submitButton = document.getElementById("SignUpButton");
+    const validationPassword = /[0-9a-zA-Z]{6,}/;
+    const validationUsername = /[a-zA-Z0-9]((?!(.|))|.(?!(_|.))|[a-zA-Z0-9]){1,25}[a-zA-Z0-9]$/;
+
+    function isUsernameValid(username) {
+        return validationUsername.test(username);
+    }
+
+    function isPasswordValid(password){
+        return validationPassword.test(password);
+    }
+
+    submitButton.addEventListener("click", function (e) {
+        let usernameValidation = isUsernameValid(usernameSignUp);
+        let passwordValidation = isPasswordValid(passwordSignUp);
+        if (!usernameValidation){
+            usernameError.innerHTML = "Your login is not valid";
+            usernameError.style.color = "#E63D3F";
+        }
+        if (!passwordValidation){
+            passwordError.innerHTML = "Your password is not valid";
+            passwordError.style.color = "#E63D3F";
+        }
+        console.log(passwordSignUp == confirmPassword);
+        console.log( confirmPassword);
+        console.log(passwordSignUp);
+        if (passwordSignUp == confirmPassword){
+            confirmPasswordError.innerHTML = "Check your password for differences";
+            confirmPasswordError.style.color = "#E63D3F";
+        }
+    });
+
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#PasswordInput_SignUp');
+    const confpassword = document.querySelector('#ConfirmPasswordInput');
+
+    togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type1 = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        const type2 = confpassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type1);
+        confpassword.setAttribute('type', type2);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
+</body>
+</html>

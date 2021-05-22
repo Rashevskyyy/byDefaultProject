@@ -1,5 +1,6 @@
 {
   "port":5000,
   "jwtSecret": "ByDef",
-  "mongoUri": "mongodb+srv://ByDef:12341234@cluster0.ozo1m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "mongoUri": "mongodb://localhost:27017/projectdb",
+  "mySql": "mySql://localhost:3306/project"
 }

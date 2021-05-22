@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    background-color: #23282D;
+    height: 90px;
+    border-bottom: 1px solid #323232;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header__logo{
+    float: left;
+    height: 66px;
+    width: 66px;
+    padding-top: 19px;
+    margin-left: 68px;
+}
+
+.header__team-name{
+    float: left;
+    color: white;
+    margin-left: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 29px;
+    line-height: 34px;
+    padding-top: 35px;
+}
+
+.header__light-mode-switch{
+    float: right;
+    height: 31px;
+    width: 31px;
+    padding-top: 37px;
+    margin-right: 4px;
+}
+
+.header__localization-switch{
+    float: right;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 29px;
+    line-height: 34px;
+    padding-top: 35px;
+    margin-right: 68px;
+}
