@@ -1,9 +1,7 @@
-import "../css/footer.css"
-import "../css/header.css"
-import "../css/signIn.css"
-
-import {LOGURL, createOptions, postRequest} from "./helpers/requests"
-import {setCookie} from "./helpers/general"
+import '../../scss/autorization.scss';
+import '../header/localization';
+import {LOGURL, createOptions, postRequest} from "../helpers/requests"
+import {setCookie} from "../helpers/general"
 
 const logInit = () => {
     const loginInput = document.querySelector('#LoginInput_SignIn');

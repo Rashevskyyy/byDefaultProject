@@ -1,8 +1,6 @@
-import "../css/footer.css"
-import "../css/header.css"
-import "../css/createAccount.css"
-
-import {REGURL, createOptions, postRequest} from "./helpers/requests"
+import '../../scss/createAccount.scss';
+import '../header/localization';
+import {REGURL, createOptions, postRequest} from "../helpers/requests"
 
 const regInit = () => {
     const loginInput = document.querySelector('#UserNameInput_SignUp');

@@ -1,12 +1,8 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    background-color: #23282D;
-}
+@import './variables.scss';
+// @import './fonts.scss';
+@import './header.scss';
+@import './footer.scss';
+@import './homePage.scss';
 
 input{
     width: 80%;
@@ -21,19 +17,6 @@ input{
     padding-left: 14px;
 }
 
-input::placeholder{
-    font-size: 18px;
-    color: rgba(143, 143, 143, 0.3);
-}
-
-a{
-    color: cornflowerblue;
-}
-
-button{
-    cursor: pointer;
-}
-
 .signIn-form__password i {
     margin-top: 1%;
     margin-left: -2.5%;
@@ -44,8 +27,8 @@ button{
 
 .signIn-form{
     width: 28%;
-    height: 420px;
-    margin: 7% auto;
+    height: 380px;
+    margin: 7% auto auto auto;
     padding: auto;
     text-align: center;
     background-color: #23272A;
@@ -54,13 +37,19 @@ button{
     font-family: 'Montserrat', sans-serif;
 }
 
-
 .signIn-form__sign{
     padding-top: 20px;
     font-size: 36px;
     color: white;
 }
-
+/*.show-password{
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    margin-left: -10%;
+    z-index: 4;
+    background: url(../img/view-gray.png) no-repeat;
+}*/
 #SignInButton{
     background: #C51655;
     width: 80%;
@@ -89,7 +78,6 @@ button{
     font-size: 12px;
     margin-top: 20px;
 }
-
 
 #SignInButton:hover{
     box-shadow: 0px 4px 4px white;

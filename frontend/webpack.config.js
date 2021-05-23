@@ -2,26 +2,25 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 module.exports = {
   mode: "development",
   entry: {
-    login: [
+    start: [
+        "@babel/polyfill",
+        path.resolve(__dirname, "./logic/logicPage/index.js"),
+      ],
+    autorization: [
       "@babel/polyfill",
-      path.resolve(__dirname, "./logicPages/authLogic.js"),
+      path.resolve(__dirname, "./logic/logicPage/autorizationPage.js"),
     ],
     registration: [
       "@babel/polyfill",
-      path.resolve(__dirname, "./logicPages/registrLogic.js"),
+      path.resolve(__dirname, "./logic/logicPage/registrationPage.js"),
     ],
     main: [
       "@babel/polyfill",
-      path.resolve(__dirname, "./logicPages/mainLogic.js"),
+      path.resolve(__dirname, "./logic/logicPage/mainPage.js"),
     ],
-    welcome: [
-      "@babel/polyfill",
-      path.resolve(__dirname, "./logicPages/welcomeLogic.js"),
-    ]
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -34,30 +33,30 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "html/index.html",
-      filename: "index.html",
-      chunks: ["welcome"],
+        template: "./client/index.html",
+        filename: "index.html",
+        chunks: ["start"],
+      }),
+    new HtmlWebpackPlugin({
+      template: "./client/autorizationPage.html",
+      filename: "autorizationPage.html",
+      chunks: ["autorization"],
     }),
     new HtmlWebpackPlugin({
-      template: "html/mainPage.html",
+        template: "./client/registrationPage.html",
+        filename: "registrationPage.html",
+        chunks: ["registration"],
+      }),
+    new HtmlWebpackPlugin({
+      template: "./client/mainPage.html",
       filename: "mainPage.html",
       chunks: ["main"],
-    }),
-    new HtmlWebpackPlugin({
-      template: "html/createAccount.html",
-      filename: "createAccount.html",
-      chunks: ["registration"],
-    }),
-    new HtmlWebpackPlugin({
-      template: "html/signIn.html",
-      filename: "signIn.html",
-      chunks: ["login"],
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "img/", to: "img" }],
+      patterns: [{ from: "./img", to: "dist/img" }],
     }),
   ],
   module: {
