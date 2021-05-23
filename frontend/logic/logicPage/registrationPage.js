@@ -16,7 +16,7 @@ const regInit = () => {
         const regOptions = createOptions(user)
         postRequest(REGURL, regOptions).then((data) => {
             switch (data.message) {
-                case "Пользователь создан": window.location.pathname = "signIn.html"
+                case "Пользователь создан": window.location.pathname = "./autorizationPage.html"
                 break;
                 case "Такой пользователь уже существует":
                     // Отрисовать ошибку пользователь существует

@@ -15,7 +15,7 @@ const logInit = () => {
         postRequest(LOGURL, regOptions).then((data) => {
             if (data.token) {
                 setCookie("token", data.token)
-                window.location.pathname = "mainPage.html"
+                window.location.pathname = "./mainPage.html"
             }
         }).catch(() => {
             // Здесь делать отрисовку ошибки что сервер не работает, попробуйте позже
