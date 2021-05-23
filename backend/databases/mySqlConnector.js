@@ -1,15 +1,21 @@
 const mysql = require("mysql");
 
-console.log('Get connection...');
+function enableMysql () {
+    const connection = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        database: "table_person",
+        password: "root"
+    });
+    connection.connect(function (err) {
+        if (err) {
+            return console.error("Ошибка: " + err.message);
+        } else {
+            console.log("Подключение к серверу MySQL успешно установлено");
+        }
+    });
+}
 
-const connect = mysql.createConnection({
-    database: 'mytestdb',
-    host: 'localhost',
-    user: "root",
-    password: "root"
-});
-connect.connect(function (err){
-    if(err) throw err;
-    console.log("Connected!")
-})
 
+
+module.exports = enableMysql

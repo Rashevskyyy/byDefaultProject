@@ -29,4 +29,6 @@ sortingBtn.addEventListener('click', () => {
 
 sortingBy.addEventListener('click', () => {
   document.getElementById("sorting-by").classList.remove('showDropdown');
-})
+});
+
+

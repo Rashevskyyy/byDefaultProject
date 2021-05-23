@@ -21,7 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.10",
     "mysql": "^2.18.1",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "neo4j-driver": "^4.2.3"
   },
   "devDependencies": {
     "concurrently": "^6.1.0",

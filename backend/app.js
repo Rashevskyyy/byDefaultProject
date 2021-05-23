@@ -1,12 +1,12 @@
+const enableMysql =  require("./databases/mySqlConnector.js")
+const enableNeo4j =  require("./databases/neo4jConnector")
 const express = require('express');
 const config = require('config')
 const mongoose = require('mongoose');
 const registration = require('./registration')
 const login = require('./login')
-const mysql2 = require('mysql2');
 const {Schema, model, Types} = require('mongoose')
 const cors = require('cors')
-
 
 const app = express();
 
@@ -39,4 +39,8 @@ async function start() {
 }
 start()
 
+
 app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
+
+enableMysql()
+enableNeo4j()
