@@ -1,5 +1,6 @@
 import '../../scss/createAccount.scss';
 import '../header/localization';
+import '../helpers/registPassword';
 import {REGURL, createOptions, postRequest} from "../helpers/requests"
 
 const regInit = () => {
