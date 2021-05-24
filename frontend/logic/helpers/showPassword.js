@@ -1,21 +1,8 @@
 import '../../scss/modalWindow.scss'
 
-//show passwond in registartion page
-/*const togglePassword = document.querySelector('#togglePassword');
-    const password = document.querySelector('#PasswordInput_SignIn');
-
-    togglePassword.addEventListener('click', function (e) {
-        // toggle the type attribute
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        password.setAttribute('type', type);
-        // toggle the eye slash icon
-        this.classList.toggle('fa-eye-slash');
-    });
-*/
-
 //show password in modal window
-let showPasword = document.getElementById('show-password-old');
-let input = document.getElementById('password-input-old');
+const showPasword = document.getElementById('show-password-old');
+const input = document.getElementById('password-input-old');
 
 showPasword.addEventListener('click', () =>{
     if (input.getAttribute('type') == 'password') {
