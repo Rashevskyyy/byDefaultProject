@@ -1,8 +1,8 @@
 const enableMysql =  require("./databases/mySqlConnector.js")
 const enableNeo4j =  require("./databases/neo4jConnector")
+const start =  require("./databases/mongoDb")
 const express = require('express');
 const config = require('config')
-const mongoose = require('mongoose');
 const registration = require('./registration')
 const login = require('./login')
 const {Schema, model, Types} = require('mongoose')
@@ -16,31 +16,11 @@ app.use(cors());
 app.use('/login', login)
 app.use('/registration', registration)
 
-
 const PORT = config.get('port') || 5000
-
-async function start() {
-    try {
-    await mongoose.connect(config.get('mongoUri'), {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true
-    })
-        const db = mongoose.connection;
-        db.on('error', console.error.bind(console, 'connection error:'));
-        db.on('open', function() {
-          console.log('MongoDb are connected!')
-        });
-
-    } catch (e) {
-        console.log('Server Error', e.message)
-        process.exit(1)
-    }
-}
-start()
-
 
 app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
 
+start()
 enableMysql()
 enableNeo4j()
+
