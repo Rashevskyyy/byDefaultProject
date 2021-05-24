@@ -1,7 +1,7 @@
 import '../../scss/mainPage.scss';
 import '../header/localization';
 import '../header/modalWindow';
-import '../helpers/showPassword';
+import '../helpers/mainPassword';
 import '../helpers/btnClearAll';
 import '../helpers/btnCreate';
 import '../helpers/btnDelete';
