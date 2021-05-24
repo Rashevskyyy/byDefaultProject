@@ -13,7 +13,6 @@
                     <div class="block__left--logo"></div>
                     <h2 class="block__left--name">ByDefault</h2>  
                 </div>
-                <a href="./registrationPage.html">NEXT</a>
                 <div class="block__right container-dropdwn">
                     <div class="container-dropdwn__dropdown">
                         <button class="dropbtn btn" id="localization-switch">
@@ -30,37 +29,22 @@
             </div>
         </div>
     </header>
-    <main>
-        <div class="signIn-form">
-            <div class="signIn-form__sign">
-                SIGN IN
+    <div class="container-block">
+        <div class="container-block--block block">
+            <h1 class="block--name">SIGN IN</h1>
+            <label class="block--name-field">LOGIN</label>
+            <input class="block--inpt inpt-fields" d="LoginInput_SignIn" placeholder="Enter your login...">
+            <label class="block--name-field">PASSWORD</label>
+            <div class="block__container">
+                <input class="block__container--inpt inpt-fields" id="PasswordInput_SignIn" placeholder="Enter your password..." type="password">
+                <button class="block__container--show-password" id="password-sing-in"></button>
             </div>
-            <div class="signIn-form__login">
-                <div class="signIn-form__input-name">
-                    LOGIN
-                </div>
-                <div class="signIn-form__input">
-                    <input id="LoginInput_SignIn" placeholder="Login">
-                </div>
-            </div>
-            <div class="signIn-form__password">
-                <div class="signIn-form__input-name">
-                    PASSWORD
-                </div>
-                <div class="signIn-form__input">
-                    <input  id="PasswordInput_SignIn" placeholder="Password" type="password">
-                        <i class="far fa-eye" id="togglePassword"></i>
-                </div>
-        
-            </div>
-            <div class="signIn-form__submit-button">
-                <button id="SignInButton">Submit</button>
-            </div>
-            <div class="signIn-form__lastWords">
+            <button class="block--submit" id="SignInButton">Submit</button>
+            <div class="block--link">
                 Need an account? <a href="./registrationPage.html">Register now</a>
             </div>
         </div>
-        </main>
+    </div>
     <footer>
         <div class="block-footer">
             <p class="block-footer__text">ByDefault project</p>
