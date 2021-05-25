@@ -7,6 +7,7 @@ const login = require('./login')
 const {Schema, model, Types} = require('mongoose')
 const cors = require('cors')
 const mySql = require("./databases/mySql/mySqlRout");
+const mongoDb = require("./databases/Mongo/mongoDbConnector");
 
 const app = express();
 
@@ -16,12 +17,12 @@ app.use(cors());
 app.use('/login', login)
 app.use('/registration', registration)
 app.use('/mySql', mySql)
+app.use('/mongoDb', mongoDb)
 
 const PORT = config.get('port') || 5000
 
 app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
 
 start()
-
 enableNeo4j()
 
