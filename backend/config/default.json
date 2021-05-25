@@ -1,6 +1,5 @@
 {
   "port":5000,
   "jwtSecret": "ByDef",
-  "mongoUri": "mongodb://localhost:27017/projectdb",
-  "mySql": "mySql://localhost:3306/project"
+  "mongoUri": "mongodb://localhost:27017/projectdb"
 }
