@@ -69,29 +69,6 @@
             </div>
         </div>
     </div>
-    <div class="modal-create" id="modal-window-create">
-        <div class="modal-create__modal">
-            <div class="modal-create__modal--img" id="close-create">&#10006;</div>
-            <div class="modal-create__modal__container">
-              <h2 class="modal-create__modal__container--name">Create</h2>
-              <label class="modal-create__modal__container--lbl elem-create">First name*</label>
-              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter first name...">
-              <label class="modal-create__modal__container--lbl elem-create">Last name*</label>
-              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter last name...">
-              <label class="modal-create__modal__container--lbl elem-create">Age*</label>
-              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter age...">
-              <label class="modal-create__modal__container--lbl elem-create">city*</label>
-              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter city...">
-              <label class="modal-create__modal__container--lbl elem-create">phone</label>
-              <input class="modal-create__modal__container--inpt elem-create" placeholder="+380yyxxxxxxx">
-              <label class="modal-create__modal__container--lbl elem-create">email</label>
-              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter email...">
-              <label class="modal-create__modal__container--lbl elem-create">Company</label>
-              <input class="modal-create__modal__container--inpt elem-create" placeholder="Enter company...">
-              <button class="modal-create__modal__container--btn elem-create">Create</button>
-            </div>
-        </div>
-    </div>
     <div class="modal-clear" id="window-clear-all">
         <div class="modal-clear__modal" id="modal-login">
             <div class="modal-clear__modal--img" id="close-clear">&#10006;</div>
@@ -112,7 +89,7 @@
                     <button class="container-databases__dropdown--slct" id="databases-btn" value="mysql">MySQL<div class="arrow"></div></button>
                     <div class="container-databases__dropdown--content" id="options">
                         <div class="content-hover" value="postgresql">PostgreSQL</div>
-                        <div class="content-hover" value="h2">H2</div>
+                        <div class="content-hover" value="neo4j">Neo4j</div>
                         <div class="content-hover" value="mongodb">MongoDB</div>
                         <div class="content-hover" value="redis">Redis</div>
                         <div class="content-hover" value="cassandra">Cassandra</div>
@@ -123,9 +100,8 @@
             <div class="block-dropdownn__bases container-databases">
                 <label class="container-databases__bases--name">Sorting by</label>
                 <div class="container-databases__dropdown">
-                    <button class="container-databases__dropdown--slct" id="sorting-btn" value="id">Id<div class="arrow"></div></button>
+                    <button class="container-databases__dropdown--slct" id="sorting-btn" value="firstName">First name<div class="arrow"></div></button>
                     <div class="container-databases__dropdown--content" id="sorting-by">
-                        <div class="content-hover" value="firstName">First name</div>
                         <div class="content-hover" value="lastName">Last name</div>
                         <div class="content-hover" value="age">Age</div>
                         <div class="content-hover" value="city">City</div>
@@ -135,12 +111,23 @@
                     </div>
                 </div>
             </div>
+            <div class="block-dropdownn__bases container-create" id="modal-window-create">
+                <label class="container-create--name">Create</label>
+                <input class="container-create--fields" placeholder="Enter first name*...">
+                <input class="container-create--fields" placeholder="Enter last name*...">
+                <input class="container-create--fields" placeholder="Enter age*...">
+                <input class="container-create--fields" placeholder="Enter city...">
+                <input class="container-create--fields" placeholder="+380yyxxxxxxx">
+                <input class="container-create--fields" placeholder="Enter email*...">
+                <input class="container-create--fields" placeholder="Enter company...">
+                <button class="container-create--btn">Create</button>
+            </div>
         </div>
         <div class="content__block--right block">
             <div class="block__main">
                 <div class="block__main--panel panel">
                     <button class="panel__btn --create" id="create">Create <div class="panel__btn--create icons-btn"></div></button>
-                    <button class="panel__btn --update">Update <div class="panel__btn--update icons-btn"></div></button>
+                    <button class="panel__btn --update" id="update">Update <div class="panel__btn--update icons-btn"></div></button>
                     <button class="panel__btn --delete" id="delete-btn">Delete <div class="panel__btn--delete icons-btn"></div></button>
                     <button class="panel__btn --clear" id="clear-all">ClearAll <div class="panel__btn--clear-all icons-btn"></div></button>
                     <div class="panel__search">
@@ -156,37 +143,34 @@
                         </form>
                     </div>
                 </div>
-                <div class="block__main--table table">
-                    <div class="table__name">
-                        <div class="table__name__item --left-top small ">id</div>
-                        <div class="table__name__item">Fname</div>
-                        <div class="table__name__item">Lname</div>
-                        <div class="table__name__item small">age</div>
-                        <div class="table__name__item small">city</div>
-                        <div class="table__name__item">phoneNumber</div>
-                        <div class="table__name__item">email</div>
-                        <div class="table__name__item --right-top">companyName</div>
+                <div class="block__main__name-fields">
+                    <div class="block__main__name-fields__item --left-top">Fname</div>
+                    <div class="block__main__name-fields__item">Lname</div>
+                    <div class="block__main__name-fields__item small">age</div>
+                    <div class="block__main__name-fields__item small">city</div>
+                    <div class="block__main__name-fields__item">phoneNumber</div>
+                    <div class="block__main__name-fields__item">email</div>
+                    <div class="block__main__name-fields__item --right-top">companyName</div>
+                </div>
+                <div class="block__main--table table" id="table">
+                    <div class="table__main row" data-del="delete">
+                        <div class="table__main__item"><input id="fields" class="table__main__item--inpt" value="dfb" type="text" disabled></div>
+                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item small"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item small"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item"><div class="delete-persons" data-del="delete"></div><input class="table__main__item--inpt" value="" type="text" disabled></div>
                     </div>
-                    <div class="table__main">
-                        <div class="table__main__item  small">ff</div>
-                        <div class="table__main__item">ff</div>
-                        <div class="table__main__item">ff</div>
-                        <div class="table__main__item small">ff</div>
-                        <div class="table__main__item small">ff</div>
-                        <div class="table__main__item">ff</div>
-                        <div class="table__main__item">ff</div>
-                        <div class="table__main__item">ff<div class="delete-persons"></div></div>
-                    </div>
-                    <div class="table__main">
-                        <div class="table__main__item --left-bottom small"></div>
-                        <div class="table__main__item"></div>
+                    <!-- <div class="table__main row" >
+                        <div class="table__main__item --left-bottom"></div>
                         <div class="table__main__item"></div>
                         <div class="table__main__item small"></div>
                         <div class="table__main__item small"></div>
                         <div class="table__main__item"></div>
                         <div class="table__main__item"></div>
-                        <div class="table__main__item --right-bottom"><div class="delete-persons"></div></div> 
-                    </div>
+                        <div class="table__main__item --right-bottom"><div class="delete-persons" data-del="delete"></div></div> 
+                    </div> -->
                 </div>
             </div>
         </div>

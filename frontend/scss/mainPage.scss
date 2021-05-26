@@ -13,6 +13,7 @@
     &__block{
         &--left{
             width: 24%;
+            overflow-y: scroll;
         }
         &--right{
             width: 100%;
@@ -78,6 +79,60 @@
         border: 2px solid rgba(0, 0, 0, 0.5);
     }
 }
+.container-create{
+    width: 90%;
+    height: auto;
+    display: block;
+    margin: 5% auto;
+    background: #23272a;
+    border-radius: 10px;
+    padding: 2%;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    &--name{
+        font-size: 20px;
+    }
+    // &--label{
+    //     width: 90%;
+    //     font-size: 10px;
+    //     text-transform: uppercase;
+    //     color: $color-modal-window-lbl;
+    // }
+    &--fields{
+        font-size: 16px;
+        height: 30px;
+        border: none;
+        outline: none;
+        background: #212527;
+        box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 50%) inset;
+        border-radius: 5px;
+        padding: 1%;
+        width: 90%;
+        margin: 3% auto;
+    }
+    &--btn{
+        height: 30px;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        font-size: 24px;
+        color: black;
+        background: $color-modal-window-btn;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        width: 90%;
+        margin: 3% auto;
+    }
+    &--btn:hover{
+        color: white;
+    }
+}
+.show-create{
+    opacity: 1;
+    visibility: visible;
+}
 .arrow{
     width: 20px;
     height: 20px;
@@ -93,6 +148,31 @@
         margin: auto;
         border-radius: 10px;
         box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.5);
+        overflow-y: scroll;
+        &__name-fields{
+            width: 88%;
+            // width: 95%;
+            margin: 2% auto 0 auto;
+            height: 30px;
+            display: flex;  
+            &__item{
+                width: 16%;
+                background: #1C1F21;
+                border-right: 1px solid #474747;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .--left-top{
+                border-radius: 10px 0 0 0;
+            }
+            .--right-top{
+                border-radius:  0 10px 0 0; 
+            }
+            &__item:nth-child(7){
+                border: none;
+            }
+        }
         &--panel{
             width: 95%;
             height: 10%;
@@ -157,7 +237,7 @@
         }
         &--table{
             width: 95%;
-            margin: 2% auto;
+            margin: 0 auto 0 auto;
             border-radius: 10px;
         }
     }
@@ -170,30 +250,9 @@
     margin: 2px 5px 2px 2px ;
 }
 .table{
-    &__name{
-        width: 100%;
-        height: 30px;
-        display: flex;  
-        &__item{
-            width: 16%;
-            background: #1C1F21;
-            border-right: 1px solid #474747;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .--left-top{
-            border-radius: 10px 0 0 0;
-        }
-        .--right-top{
-            border-radius:  0 10px 0 0; 
-        }
-        &__item:nth-child(8){
-            border: none;
-        }
-    }
     &__main{
-        width: 100%;
+        width: 93%;
+        margin: auto;
         height: 50px;
         display: flex;
         &__item{
@@ -201,31 +260,49 @@
             background:rgba(53, 57, 59, 1);
             border: 1px solid #323232;
             text-align: center;
-            padding-top: 1.5%;
+            padding: 2% 0 0 0;
+            &--inpt{
+                width: 96%;
+                height: 100%;
+                border: none;
+                outline: none;
+                background: #35393b;
+            }
         }
         .--right-bottom{
             border-radius:  0  0 10px 0 ;
         }
         .--left-bottom{
             border-radius: 0 0 0 10px;
-        }        
+        }    
     }
-    .small{
-        width: 7%;
-    }
-    .delete-persons{
-        width: 12px;
-        height: 12px;
-        float: right;
-        margin: -5% 7%;
-    }
+    
+}
+.small{
+    width: 10.5%;
+}
+.change-border-add{
+    border: 0;
 }
 .show-btn-delete{
+    width: 12px;
+    height: 12px;
+    float: right;
+    margin: -12% 0 0 0;
     cursor: pointer;
     background: url(../img/delete.png) no-repeat;
 }
 
-
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    background: $primary-color-bg;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: #35393b;
+}
 
 
 
