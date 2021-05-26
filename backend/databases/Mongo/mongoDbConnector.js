@@ -99,6 +99,7 @@ class Mongo {
 };
 
 const persons = new Mongo()
+
 route.get("/",  authToken, (req, res, next) => {
     persons.getPerson(req, res)
 });

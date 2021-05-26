@@ -2,14 +2,6 @@ const express = require("express");
 const mySql = require("mysql");
 // const validation = require("../../../validation/validation");
 const path = require('path');
-const {
-    postQuery,
-    getQuery,
-    deleteQuery,
-    putQuery,
-} = require("../queryHelper");
-
-
 
 const route = express.Router();
 const authToken = require('../../tokenverify')
@@ -19,11 +11,8 @@ class MySql {
         this.connection = mySql.createConnection({
             host: "localhost",
             user: "root",
-            port: 3306,
             password: "root",
             database: "table_person",
-            insecureAuth: true,
-            options: {trustedConnection: true}
         });
         this.connection.connect(function (err) {
             if (err) {
@@ -39,7 +28,6 @@ class MySql {
             const userID = req.user.userId;
             const queryAll = `SELECT * FROM persons WHERE user_id = '${userID}'`;
             this.connection.query(queryAll, (err, result) => {
-                console.log(result)
                 this.#setResponse(res, 200, result);
             });
         } catch (err) {
@@ -55,7 +43,6 @@ class MySql {
             const queryCreate = `INSERT INTO persons (user_id, fname, lname, age, city, phoneNumber, email, companyName) VALUES ('${userID}', '${newField.fName}', '${newField.lName}', '${newField.age}', '${newField.city}','${newField.phoneNumber}', '${newField.email}', '${newField.companyName}')`;
             await this.connection.query(queryCreate);
             this.connection.query(queryAll, (err, result) => {
-                console.log(result)
                 this.#setResponse(res, 200, result);
             });
         } catch (err) {
@@ -73,7 +60,6 @@ class MySql {
             const queryUpdate = `UPDATE persons SET ${key} = '${newField[key]}' WHERE user_id = '${userID}' AND id = '${req.query.id}'`;
             await this.connection.query(queryUpdate);
             this.connection.query(queryAll, (err, result) => {
-                console.log(result)
                 this.#setResponse(res, 200, result);
             });
         } catch (err) {
@@ -92,7 +78,6 @@ class MySql {
             const queryAll = `SELECT * FROM persons WHERE user_id = '${userID}'`;
             await this.connection.query(queryDelete);
             this.connection.query(queryAll, (err, result) => {
-                console.log(result)
                 this.#setResponse(res, 200, result);
             });
         } catch (err) {
@@ -107,7 +92,6 @@ class MySql {
             const queryAll = `SELECT * FROM persons WHERE user_id = '${userID}'`;
             await this.connection.query(queryClearAll);
             this.connection.query(queryAll, (err, result) => {
-                console.log(result)
                 this.#setResponse(res, 200, result);
             });
         } catch (err) {
@@ -124,7 +108,7 @@ class MySql {
 const persons = new MySql()
 
 route.get("/",  authToken, (req, res, next) => {
-        persons.getRequest(req, res)
+    persons.getRequest(req, res)
 });
 route.post("/", authToken,  (req, res, next) => {
     persons.create(req, res)
