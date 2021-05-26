@@ -1,10 +1,11 @@
 import '../../scss/mainPage.scss';
 import '../header/localization';
 import '../header/modalWindow';
-import '../helpers/showPassword';
+import '../helpers/mainPassword';
 import '../helpers/btnClearAll';
 import '../helpers/btnCreate';
 import '../helpers/btnDelete';
+import '../helpers/btnUpdate'
 //dropdown databases
 let dataBasesBtn = document.getElementById('databases-btn');
 let optionsDropdown = document.getElementById('options');
@@ -29,4 +30,6 @@ sortingBtn.addEventListener('click', () => {
 
 sortingBy.addEventListener('click', () => {
   document.getElementById("sorting-by").classList.remove('showDropdown');
-})
+});
+
+
