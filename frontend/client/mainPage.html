@@ -128,7 +128,7 @@
             <div class="block__main">
                 <div class="block__main--panel panel">
                     <button class="panel__btn --create" id="create">Create <div class="panel__btn--create icons-btn"></div></button>
-                    <button class="panel__btn --update">Update <div class="panel__btn--update icons-btn"></div></button>
+                    <button class="panel__btn --update" id="update">Update <div class="panel__btn--update icons-btn"></div></button>
                     <button class="panel__btn --delete" id="delete-btn">Delete <div class="panel__btn--delete icons-btn"></div></button>
                     <button class="panel__btn --clear" id="clear-all">ClearAll <div class="panel__btn--clear-all icons-btn"></div></button>
                     <div class="panel__search">
@@ -145,7 +145,6 @@
                     </div>
                 </div>
                 <div class="block__main__name-fields">
-                    <!-- <div class="block__main__name-fields__item --left-top small ">id</div> -->
                     <div class="block__main__name-fields__item --left-top">Fname</div>
                     <div class="block__main__name-fields__item">Lname</div>
                     <div class="block__main__name-fields__item small">age</div>
@@ -156,16 +155,15 @@
                 </div>
                 <div class="block__main--table table" id="table">
                     <div class="table__main row" data-del="delete">
-                        <!-- <div class="table__main__item  small"></div> -->
-                        <div class="table__main__item"><input class="table__main__item--inpt" type="text"></div>
-                        <div class="table__main__item"><input class="table__main__item--inpt" type="text"></div>
-                        <div class="table__main__item small"><input class="table__main__item--inpt" type="text"></div>
-                        <div class="table__main__item small"><input class="table__main__item--inpt" type="text"></div>
-                        <div class="table__main__item"><input class="table__main__item--inpt" type="text"></div>
-                        <div class="table__main__item"><input class="table__main__item--inpt" type="text"></div>
-                        <div class="table__main__item"><div class="delete-persons" data-del="delete"></div><input class="table__main__item--inpt" type="text"></div>
+                        <div class="table__main__item"><input id="fields" class="table__main__item--inpt" value="dfb" type="text" disabled></div>
+                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item small"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item small"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
+                        <div class="table__main__item"><div class="delete-persons" data-del="delete"></div><input class="table__main__item--inpt" value="" type="text" disabled></div>
                     </div>
-                    <div class="table__main row" >
+                    <!-- <div class="table__main row" >
                         <div class="table__main__item --left-bottom"></div>
                         <div class="table__main__item"></div>
                         <div class="table__main__item small"></div>
@@ -173,7 +171,7 @@
                         <div class="table__main__item"></div>
                         <div class="table__main__item"></div>
                         <div class="table__main__item --right-bottom"><div class="delete-persons" data-del="delete"></div></div> 
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
