@@ -24,8 +24,8 @@ const postQuery = (req) => {
 };
 
 const deleteQuery = (req) => {
-    let answer = ` DELETE FROM persons WHERE (ID = ${req.query.tableID})`;
-    if (req.query.tableID === "all") {
+    let answer = ` DELETE FROM persons WHERE (ID = ${req.query.id})`;
+    if (req.query.id === "all") {
         answer = ` DELETE FROM persons WHERE (USER_ID = '${req.query.id}')`;
     }
     return answer;

@@ -5,7 +5,7 @@ export const LOGURL = URL + "login";
 export const createOptions = (body) => {
     const result = {
        method: "POST",
-       headers: { "Content-Type": "application/json" },
+       headers: { "Content-Type": "application/json", Authorization: document.cookie.split("=")[1]},
        body: JSON.stringify(body)
    }
    return result;
