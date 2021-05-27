@@ -90,7 +90,6 @@ class SQLite3 {
 }
 
 const persons = new SQLite3();
-// persons.init();
 
 route.get("/",  authToken, (req, res, next) => {
   persons.getRequest(req, res)
@@ -105,5 +104,4 @@ route.put("/",  authToken, (req, res, next) => {
   persons.updateById(req, res)
 });
 
-module.exports = SQLite3;
 module.exports = route;
