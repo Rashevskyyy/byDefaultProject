@@ -1,26 +1,22 @@
 const express = require("express");
 const sqlite3 = require('sqlite3').verbose(); //+
-const db = new sqlite3.Database('Persons');
+// const db = new sqlite3.Database('Persons');
 const path = require('path');
 const route = express.Router();
 const authToken = require('../../tokenverify');
 
-// let str = 'CREATE TABLE persons (id PRIMARY KEY AUTOINCREMENT, user_id varchar(255), fname varchar(255), lname varchar(255), age varchar(255), city varchar(255), phoneNumber varchar(255), email varchar(255), companyName varchar(255))'
+// let str = 'CREATE TABLE persons (id PRIMARY KEY AUTOINCREMENT, user_id varchar(255), "fName" varchar(255), "lName" varchar(255), age varchar(255), city varchar(255), "phoneNumber" varchar(255), email varchar(255), "companyName" varchar(255))'
 
 class SQLite3 {
   constructor(){
-    this.sqliteDB = new sqlite3.Database('./databases/SQLite/Persons', 
+    this.sqliteDB = new sqlite3.Database('./databases/SQLite/Persons.db', 
     (err) => {
       if(err){
         console.log('No connection');
       }
       console.log('Connected to SQLite3');
-      // this.init();
     });
   }
-  // init(){
-  //   this.sqliteDB.run(str, () =>{});
-  // }
   async getRequest(req, res){
     try {
       const userID = req.user.userId;
@@ -40,9 +36,9 @@ class SQLite3 {
     try {
       const newField = req.body;
       const userID = req.user.userId;
-      const queryCreate = `INSERT INTO persons (id_user, "firstName", "lastName", age, city, phone, email, company) VALUES ('${userID}', '${newField.firstName}', '${newField.lastName}', ${newField.age}, '${newField.city}','${newField.phone}', '${newField.email}', '${newField.company}') RETURNING *`;
+      const queryCreate = `INSERT INTO persons (user_id, fName, lName, age, city, phoneNumber, email, companyName) VALUES ('${userID}', '${newField.fName}', '${newField.lName}', '${newField.age}', '${newField.city}','${newField.phoneNumber}', '${newField.email}', '${newField.companyName}')`;
       this.sqliteDB.run(queryCreate);
-      this.#setResponse(res, 200, result.rows);
+      this.#setResponse(res, 200);
     } catch (err) {
       this.#setResponse(res, 403, 'Something happens');
     }
@@ -50,12 +46,13 @@ class SQLite3 {
   async updateById(req, res) {
     try {
       const newField = req.body;
-      const key = Object.keys(newField)[0];
-      const queryUpdate = `UPDATE persons SET "firstName" = '${newField.firstName}', "lastName" = '${newField.lastName}', age = ${newField.age}, city = '${newField.city}', phone = '${newField.phone}', email = '${newField.email}', company = '${newField.company}' WHERE id_user = '${userID}' AND id = ${newField.id};`;
+      const userID = req.user.userId;
+      const queryUpdate = `UPDATE persons SET fName = '${newField.fName}', lName = '${newField.lName}', age = '${newField.age}',
+      city = '${newField.city}', phoneNumber = '${newField.phoneNumber}', email = '${newField.email}', companyName = '${newField.companyName}' WHERE user_id = '${userID}' AND id = ${newField.id};`;
       this.sqliteDB.run(queryUpdate);
-      this.#setResponse(res, 200, result.fields);
+      this.#setResponse(res, 200);
     } catch (err) {
-      this.#setResponse(res, 403, message.abstractErr);
+      this.#setResponse(res, 403, 'Something happens');
     }
   }
   async delete(req, res) {
@@ -64,21 +61,21 @@ class SQLite3 {
         if (req.query.id === 'all') {
           return this.clearAll(req, res);
         }
-        const queryDelete = `DELETE FROM persons WHERE id=${req.query.id} AND id_user = '${userID}'`;
+        const queryDelete = `DELETE FROM persons WHERE id=${req.query.id} AND user_id = '${userID}'`;
         this.sqliteDB.run(queryDelete);
-        this.#setResponse(res, 200, message.successDel);
+        this.#setResponse(res, 200);
     } catch (err) {
-        this.#setResponse(res, 403, message.abstractErr);
+        this.#setResponse(res, 403, 'Something happens');
     }
   }
   async clearAll(req, res) {
     const userID = req.user.userId;
     try {
-      const queryClearAll = `DELETE FROM persons WHERE id_user = '${userID}'`;
+      const queryClearAll = `DELETE FROM persons WHERE user_id = '${userID}'`;
       this.sqliteDB.run(queryClearAll);
-      this.#setResponse(res, 200, message.successDel);
+      this.#setResponse(res, 200);
     } catch (err) {
-      this.#setResponse(res, 403, message.abstractErr);
+      this.#setResponse(res, 403, 'Something happens');
     }
   }
   #setResponse = (res, status, message) => {
