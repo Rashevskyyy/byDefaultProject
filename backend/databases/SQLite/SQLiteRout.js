@@ -24,7 +24,6 @@ class SQLite3 {
   async getRequest(req, res){
     try {
       const userID = req.user.userId;
-      // const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}'`; //поменять все поля
       const queryAll = `SELECT * FROM persons WHERE user_id = '${userID}'`;
       this.sqliteDB.all(queryAll, (err, result) => {
         if (err) return this.#setResponse(res, 403, 'Something happens');
@@ -34,7 +33,7 @@ class SQLite3 {
         this.#setResponse(res, 200, result);
       });
     } catch (err) {
-      this.#setResponse(res, 403, 'Something happens'); // сообщения об ошибке
+      this.#setResponse(res, 403, 'Something happens'); 
     }
   }
   async create(req, res) {
@@ -63,7 +62,7 @@ class SQLite3 {
     const userID = req.user.userId;
     try {
         if (req.query.id === 'all') {
-            return this.clearAll(req, res);
+          return this.clearAll(req, res);
         }
         const queryDelete = `DELETE FROM persons WHERE id=${req.query.id} AND id_user = '${userID}'`;
         this.sqliteDB.run(queryDelete);
