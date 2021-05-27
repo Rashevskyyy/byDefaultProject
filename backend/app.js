@@ -8,7 +8,7 @@ const {Schema, model, Types} = require('mongoose')
 const cors = require('cors')
 // const mySql = require("./databases/mySql/mySqlRout");
 const mongoDb = require("./databases/Mongo/mongoDbConnector");
-const sqlite3 = require('./databases/SQLite/SQLiteHelpers');
+const sqlite3 = require('./databases/SQLite/SQLiteRout');
 
 const app = express();
 
