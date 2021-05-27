@@ -12,7 +12,7 @@ class SQLite3 {
     this.sqliteDB = new sqlite3.Database('./databases/SQLite/Persons', 
     (err) => {
       if(err){
-        console.log('shit happens');
+        console.log('No connection');
       }
       console.log('Connected to SQLite3');
       // this.init();
