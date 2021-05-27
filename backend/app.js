@@ -19,7 +19,7 @@ app.use('/login', login)
 app.use('/registration', registration)
 // app.use('/mySql', mySql)
 app.use('/mongoDb', mongoDb)
-// app.use('/sqlite3', sqlite3);
+app.use('/sqlite3', sqlite3);
 
 
 const PORT = config.get('port') || 5000
