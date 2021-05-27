@@ -19,7 +19,7 @@
     "express-validator": "^6.11.1",
     "exrpess": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.10",
+    "mongoose": "^5.12.11",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "neo4j-driver": "^4.2.3"
