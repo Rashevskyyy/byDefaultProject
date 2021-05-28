@@ -22,7 +22,8 @@
     "mongoose": "^5.12.10",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
-    "neo4j-driver": "^4.2.3"
+    "neo4j-driver": "^4.2.3",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "concurrently": "^6.1.0",
