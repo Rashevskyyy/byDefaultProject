@@ -102,12 +102,12 @@
                 <div class="container-databases__dropdown">
                     <button class="container-databases__dropdown--slct" id="sorting-btn" value="firstName">First name<div class="arrow"></div></button>
                     <div class="container-databases__dropdown--content" id="sorting-by">
-                        <div class="content-hover" value="lastName">Last name</div>
-                        <div class="content-hover" value="age">Age</div>
-                        <div class="content-hover" value="city">City</div>
-                        <div class="content-hover" value="phoneNumber">Phone number</div>
-                        <div class="content-hover" value="email">Email</div>
-                        <div class="content-hover" value="companyName">Company name</div>
+                        <div class="content-hover" value="lastName" id="sortLname">Last name</div>
+                        <div class="content-hover" value="age" id="sortAge">Age</div>
+                        <div class="content-hover" value="city" id="sortCity">City</div>
+                        <div class="content-hover" value="phoneNumber" id="sortNumber">Phone number</div>
+                        <div class="content-hover" value="email" id="sortEmail">Email</div>
+                        <div class="content-hover" value="companyName" id="sortCompany">Company name</div>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                 <input class="container-create--fields" placeholder="+380yyxxxxxxx">
                 <input class="container-create--fields" placeholder="Enter email*...">
                 <input class="container-create--fields" placeholder="Enter company...">
-                <button class="container-create--btn">Create</button>
+                <button class="container-create--btn" id="createSubmit">Create</button>
             </div>
         </div>
         <div class="content__block--right block">
@@ -146,11 +146,11 @@
                 <div class="block__main__name-fields">
                     <div class="block__main__name-fields__item --left-top" id="Fname">Fname</div>
                     <div class="block__main__name-fields__item" id="Lname">Lname</div>
-                    <div class="block__main__name-fields__item small" id="age">age</div>
-                    <div class="block__main__name-fields__item small" id="city">city</div>
-                    <div class="block__main__name-fields__item" id="phoneNumber">phoneNumber</div>
-                    <div class="block__main__name-fields__item" id="email">email</div>
-                    <div class="block__main__name-fields__item --right-top" id="companyName">companyName</div>
+                    <div class="block__main__name-fields__item small" id="age">Age</div>
+                    <div class="block__main__name-fields__item small" id="city">City</div>
+                    <div class="block__main__name-fields__item" id="phoneNumber">PhoneNumber</div>
+                    <div class="block__main__name-fields__item" id="email">Email</div>
+                    <div class="block__main__name-fields__item --right-top" id="companyName">CompanyName</div>
                 </div>
                 <div class="block__main--table table" id="table">
                     <div class="table__main row" data-del="delete">

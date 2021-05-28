@@ -21,6 +21,14 @@ const cityLoc = document.getElementById("city");
 const phoneNumberLoc = document.getElementById("phoneNumber");
 const emailLoc = document.getElementById("city");
 const companyNameLoc = document.getElementById("companyName");
+const sortFname = document.getElementById("sorting-btn");
+const sortLname = document.getElementById("sortLname");
+const sortAge = document.getElementById("sortAge");
+const sortCity = document.getElementById("sortCity");
+const sortNumber = document.getElementById("sortNumber");
+const sortEmail = document.getElementById("sortEmail");
+const sortCompany = document.getElementById("sortCompany");
+const createSubmit = document.getElementById("createSubmit");
 const mainPage = {
   eng: {
     dataBases:"Data Bases",
@@ -29,7 +37,7 @@ const mainPage = {
     createButton:"Create",
     updateButton:"Update",
     deleteButton:"Delete",
-    clearAllButton:"ClearAll",
+    clearAllButton:"ClearAll <div class=\"panel__btn--clear-all icons-btn\"></div>",
     Fname:"Fname",
     Lname:"Lname",
     age:"age",
@@ -45,7 +53,7 @@ const mainPage = {
     createButton:"Создать",
     updateButton:"Обновить",
     deleteButton:"Удалить",
-    clearAllButton:"Очистить",
+    clearAllButton:"Очистить <div class=\"panel__btn--clear-all icons-btn\"></div>",
     Fname:"Имя",
     Lname:"Фамилия",
     age:"Возраст",
@@ -74,6 +82,14 @@ function languageChange(lang){
   phoneNumberLoc.innerHTML = lang.phoneNumber;
   emailLoc.innerHTML = lang.email;
   companyNameLoc.innerHTML = lang.companyName;
+  sortFname.innerHTML = lang.Fname +"<div class=\"arrow\"></div>";
+  sortLname.innerHTML = lang.Lname;
+  sortAge.innerHTML = lang.age;
+  sortCity.innerHTML = lang.city;
+  sortNumber.innerHTML = lang.phoneNumber;
+  sortEmail.innerHTML = lang.email;
+  sortCompany.innerHTML = lang.companyName;
+  createSubmit.innerHTML = lang.createWindow;
 }
 
 localizationSwitch.addEventListener('click', () => {
