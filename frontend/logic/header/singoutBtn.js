@@ -1,7 +1,6 @@
 const singoutBtn = document.getElementById('signout-btn');
 
 singoutBtn.addEventListener('click', () => {
-    // alert('jf');
     document.location = './autorizationPage.html';
     clearCookies();
 })
