@@ -5,7 +5,8 @@ import '../helpers/mainPassword';
 import '../helpers/btnClearAll';
 import '../helpers/btnCreate';
 import '../helpers/btnDelete';
-import '../helpers/btnUpdate'
+import '../helpers/btnUpdate';
+import '../header/singoutBtn';
 //dropdown databases
 let dataBasesBtn = document.getElementById('databases-btn');
 let optionsDropdown = document.getElementById('options');
