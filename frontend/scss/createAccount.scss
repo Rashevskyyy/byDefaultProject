@@ -4,8 +4,8 @@
 @import './homePage.scss';
 
 .container-block{
-    width: 25%;
-    height: 70vh;
+    width: 25vw;
+    height: auto;
     margin: 3% auto;
     padding: auto;
     text-align: center;
@@ -23,6 +23,10 @@
     &--name{
         font-size: 36px;
     }
+    &--error{
+        margin-top: 5%;
+        color: cornflowerblue;
+    }
     &--name-field{
         margin: 7% auto 1% auto;
         font-size: 14px;
@@ -33,7 +37,7 @@
     &--submit{
         background: #13C9E2;
         width: 100%;
-        margin-top: 40px;
+        margin-top: 7%;
         height: 45px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 7px;
