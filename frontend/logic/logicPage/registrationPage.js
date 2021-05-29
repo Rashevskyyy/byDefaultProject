@@ -19,7 +19,6 @@ const regInit = () => {
         const regOptions = createOptions(user);
         if(validateLogin(user.login) && checkPassword){
             postRequest(REGURL, regOptions).then((data) => {
-           
                 switch (data.message) {
                     case "Пользователь создан": window.location.pathname = "./autorizationPage.html"
                     break;
