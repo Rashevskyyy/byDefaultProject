@@ -70,7 +70,7 @@
             cursor: pointer;
             z-index: 1;
         }
-        .content-hover:hover{
+        .content-hover:hover, .content-hover-bases:hover{
             color: $color-btn-hover;
         }
     }
