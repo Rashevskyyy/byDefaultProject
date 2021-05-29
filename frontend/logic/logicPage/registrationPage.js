@@ -1,36 +1,40 @@
 import '../../scss/createAccount.scss';
-import '../header/localization';
+// import '../header/localization';
 import '../helpers/registPassword';
 import {REGURL, createOptions, postRequest} from "../helpers/requests"
-
+import {validateLogin, validatePassword} from '../logicPage/validation/validation'
+const loginInput = document.querySelector('#UserNameInput_SignUp');
+const passwordInput = document.querySelector('#PasswordInput_SignUp');
+const passwordConfirm = document.getElementById('password-confirm');
+const signButton = document.querySelector('#SignUpButton');
+const fieldsForErrror = document.getElementById('error');
 const regInit = () => {
-    const loginInput = document.querySelector('#UserNameInput_SignUp');
-    const passwordInput = document.querySelector('#PasswordInput_SignUp');
-    // confirm node
-    const signButton = document.querySelector('#SignUpButton');
-
+  
     signButton.addEventListener("click", () => {
-        // const validation = VALIDATE(логин пароль конфирм пароль)
-        // если валидация прошла выполняется что внизу
-
-        const user = {login: loginInput.value, password: passwordInput.value}
-        const regOptions = createOptions(user)
-        postRequest(REGURL, regOptions).then((data) => {
-            switch (data.message) {
-                case "Пользователь создан": window.location.pathname = "./autorizationPage.html"
-                break;
-                case "Такой пользователь уже существует":
-                    // Отрисовать ошибку пользователь существует
-                    console.log('Пользователь существует');
-                break;
-                case "Что-то пошло не так, попробуйте снова": console.log('Ошибка сервера');
-                break;
-            }
-        }).catch(() => {
-            // Здесь делать отрисовку ошибки что сервер не работает, попробуйте позже
-            console.log('Умер')
-        })
+        const user = {
+            login: loginInput.value,
+            password: passwordInput.value,
+            passwordConfirm: passwordConfirm.value
+        }
+        const regOptions = createOptions(user); 
+        if(validateLogin(user.login) && validatePassword(user.password)){
+            postRequest(REGURL, regOptions).then((data) => {
+                if(data.message === "Что-то пошло не так, попробуйте снова"){
+                    console.log('Ошибка сервера');
+                } else if(data.message === "Такой пользователь уже существует"){
+                    fieldsForErrror.innerHTML = "User already exists";
+                } else if(user.password !== user.passwordConfirm){
+                    fieldsForErrror.innerHTML = "Passwords are different";
+                }else{
+                    window.location.pathname = "./autorizationPage.html";
+                }
+            }).catch(() => {
+                fieldsForErrror.innerHTML = "Server is down, try again later";
+            })
+        } else{
+            fieldsForErrror.innerHTML = "Data entered incorrectly";
+        }
     })
-
 }
-regInit()
+regInit();
+
