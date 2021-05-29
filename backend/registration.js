@@ -19,9 +19,9 @@ registration.post("/", async (req, res) => {
 
         await user.save(); // сохраняем нашего пользователя
 
-        res.status(201).json({ message: "Пользователь создан" });
+        res.status(201).json({ message: "Registered" });
     } catch (e) {
-        res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });
+        res.status(500).json({ message: "Bad request" });
     }
 });
 

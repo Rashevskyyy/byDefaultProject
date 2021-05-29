@@ -10,7 +10,7 @@ const mySql = require("./databases/mySql/mySqlRout");
 const mongoDb = require("./databases/Mongo/mongoDbConnector");
 const postgreDb = require("./databases/PostgreSql/PostgreRout");
 const neo4j   = require("./databases/neo4j/neo4jConnector");
-const sqlite3 = require('./databases/SQLite/SQLiteRout');
+// const sqlite3 = require('./databases/SQLite/SQLiteRout');
 
 
 const app = express();
@@ -24,7 +24,7 @@ app.use('/mySql', mySql)
 app.use('/mongoDb', mongoDb)
 app.use('/postgreDb', postgreDb)
 app.use('/neo4j', neo4j)
-app.use('/sqlite3', sqlite3);
+// app.use('/sqlite3', sqlite3);
 
 const PORT = config.get('port') || 5000
 
