@@ -1,35 +1,98 @@
-var neo4j = require("neo4j-driver");
-function enableNeo4j() {
-    var login = 'neo4j'
-    var pass = 'neo4j'
-    var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic(login, pass))
-    var session = driver.session()
+const neo4j = require("neo4j-driver");
+const express = require("express");
+const authToken = require('../../tokenverify')
+const route = express.Router();
+var driver = neo4j.driver("bolt://localhost")
 
-    if (session) {
-        console.log('Neo4j подключена')
-    }
+function getRequest (req, res) {
+    let persons = [];
+    const userID = req.user.userId;
+    let session = driver.session()
+    session.run(`MATCH (n:Person) WHERE n.user_id = '${userID}' RETURN n`)
+        .then(function (result) {
+            result.records.forEach(function (record) {
+                let person = record._fields[0].properties
+                person.id = record._fields[0].identity.low
+                persons.push(person)
+            });
+            return res.status(200).json(persons);
+        }).then(() => session.close())
+        .catch((error) => {
+            session.close();
+            res.status(400).json({ message: "Bad request" })
+            console.log(error)
+        })
 }
 
-// //get  "MATCH (n) RETURN n") возвращает все ноды которые есть в базе
-// session.run("MATCH (n:Person) RETURN n")
-//    .then(function(result){
-//      var persons = []
-//      console.log(result.records[0]._fields[0].properties);
-//      result.records.forEach(function(record){
-//        record._fields[0].properties.phoneNumber = record._fields[0].properties.phoneNumber.low
-//        record._fields[0].properties.userID = record._fields[0].properties.userID.low
-//        record._fields[0].properties.age = record._fields[0].properties.age.low
-//        var person = record._fields[0].properties
-//        person.id = record._fields[0].identity.low
-//        persons.push(person)
-//      })
-//         console.log(persons);
-//
-//        // post req Создает ноду с параметрами которые передались
-//      session.run("CREATE (n:Person {firstName:'biba',lastName: 'boba', age: 22, city: 'shrekTown', phoneNumber: 123456, email: 'shrek@kek.com', companyName: 'qwerty', userID: 2})")
-// // delete ноду
-//     session.run("MATCH (n:Person {firstName:'biba'}) DETACH DELETE n")
-//        // put req изменение ноды
-//        session.run("MATCH (n) WHERE ID(n) = 24 SET n.firstname = 'artem'")
+function create(req, res) {
+    var session = driver.session();
+    var person = req.body
+    const userID = req.user.userId;
+    session.run(`CREATE (n:Person {fName:'${person.fName}',lName: '${person.lName}', age:'${person.age}', city:'${person.city}', phoneNumber: '${person.phoneNumber}', email: '${person.email}', companyName: '${person.companyName}', user_id: '${userID}'})`).catch(err=>{
+        console.log(err)
+    return res.status(400).json({ message: "Ошибка" })
+    })
+        .then((data)=>{
+            console.log(data)
+        session.close()
+            return res.status(200).json({ message: "Пользователь записан" });
+    })
 
-module.exports = enableNeo4j
+}
+
+function deleteReq(req, res) {
+
+    var session = driver.session();
+    const userId = req.user.userId;
+    const id = req.query.id;
+        if (req.query.id === 'all') {
+            session.run(`MATCH (n:Person) WHERE n.user_id = '${userId}' DETACH DELETE n`).catch(err=>{
+                console.log(err)
+                return res.status(400).json({ message: "Ошибка" });
+            })
+                .then(()=>{
+                    session.close()
+                    return res.status(200).json({ message: "Удалилось" });
+                })
+            return;
+        }
+    session.run(`MATCH (n:Person) WHERE n.user_id = '${userId}' AND id(n) = ${id} DETACH DELETE n`).catch(err=>{
+        console.log(err)
+        return res.status(400).json({ message: "Ошибка" });
+    })
+        .then(()=>{
+            session.close()
+            return res.status(200).json({ message: "Удалилось" });
+        })
+}
+
+function updateById(req, res) {
+    var session = driver.session();
+    const newField = req.body;
+    const userId = req.user.userId;
+    const id = req.query.id;
+    const key = Object.keys(newField)[0]
+    session.run(`MATCH (n:Person) WHERE n.user_id = '${userId} AND id(n) = ${id} SET n.${key} = '${newField[key]}'`).catch(err=>{
+        console.log(err)
+        return res.status(400).json({ message: "Ошибка" });
+    })
+        .then(()=>{
+            session.close()
+            return res.status(200).json({ message: "Удалилось" });
+        })
+}
+
+route.get("/", authToken, (req, res) => {
+    getRequest(req, res)
+});
+route.post("/", authToken,  (req, res ) => {
+    create(req, res)
+});
+route.delete("/", authToken,  (req, res ) => {
+    deleteReq(req, res)
+});
+route.put("/",  authToken, (req, res) => {
+    updateById(req, res)
+});
+
+module.exports = route

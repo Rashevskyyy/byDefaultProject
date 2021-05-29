@@ -33,4 +33,4 @@ sortingBy.addEventListener('click', () => {
   document.getElementById("sorting-by").classList.remove('showDropdown');
 });
 
-
+console.log()
