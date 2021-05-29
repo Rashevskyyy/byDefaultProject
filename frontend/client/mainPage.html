@@ -86,21 +86,37 @@
             <div class="block-dropdownn__bases container-databases">
                 <label class="container-databases__bases--name" id="data-bases">Data Bases</label>
                 <div class="container-databases__dropdown">
-                    <button class="container-databases__dropdown--slct" id="databases-btn" value="mysql">MySQL<div class="arrow"></div></button>
+                    <select name="databases-name" class="container-databases__dropdown--slct" id="databases-btn">
+                        <option value="mysql">MySQL</option>
+                        <option value="postgresql">PostgreSQL</option>
+                        <option value="neo4j">Neo4j</option>
+                        <option value="mongodb">MongoDB</option>
+                        <option value="sqlite">SQLite</option>
+                    </select>
+                    <!-- <button class="container-databases__dropdown--slct" id="databases-btn" value="mysql">MySQL<div class="arrow"></div></button>
                     <div class="container-databases__dropdown--content" id="options">
-                        <div class="content-hover" value="postgresql">PostgreSQL</div>
-                        <div class="content-hover" value="neo4j">Neo4j</div>
-                        <div class="content-hover" value="mongodb">MongoDB</div>
-                        <div class="content-hover" value="redis">Redis</div>
-                        <div class="content-hover" value="cassandra">Cassandra</div>
-                        <div class="content-hover" value="sqlite">SQLite</div>
-                    </div>
+                        <div class="content-hover-bases" value="mysql">MySQL</div>
+                        <div class="content-hover-bases" value="postgresql">PostgreSQL</div>
+                        <div class="content-hover-bases" value="neo4j">Neo4j</div>
+                        <div class="content-hover-bases" value="mongodb">MongoDB</div>
+                        <div class="content-hover-bases" value="redis">Redis</div>
+                        <div class="content-hover-bases" value="cassandra">Cassandra</div>
+                        <div class="content-hover-bases" value="sqlite">SQLite</div>
+                    </div> -->
                 </div>
             </div>
             <div class="block-dropdownn__bases container-databases">
                 <label class="container-databases__bases--name" id="sorting-by-name">Sorting by</label>
                 <div class="container-databases__dropdown">
-                    <button class="container-databases__dropdown--slct" id="sorting-btn" value="firstName">First name<div class="arrow"></div></button>
+                    <select name="" class="container-databases__dropdown--slct" id="sorting">
+                        <option value="lastName">Last name</option>
+                        <option value="age">Age</option>
+                        <option value="city">City</option>
+                        <option value="phoneNumber">Phone numbe</option>
+                        <option value="email">Email</option>
+                        <option value="companyName">Company name</option>
+                    </select>
+                    <!-- <button class="container-databases__dropdown--slct" id="sorting-btn" value="firstName">First name<div class="arrow"></div></button>
                     <div class="container-databases__dropdown--content" id="sorting-by">
                         <div class="content-hover" value="lastName">Last name</div>
                         <div class="content-hover" value="age">Age</div>
@@ -108,7 +124,7 @@
                         <div class="content-hover" value="phoneNumber">Phone number</div>
                         <div class="content-hover" value="email">Email</div>
                         <div class="content-hover" value="companyName">Company name</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="block-dropdownn__bases container-create" id="modal-window-create">
