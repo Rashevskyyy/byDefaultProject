@@ -9,29 +9,29 @@ import '../helpers/btnUpdate';
 import '../header/singoutBtn';
 import '../helpers/filtration'
 //dropdown databases
-let dataBasesBtn = document.getElementById('databases-btn');
-let optionsDropdown = document.getElementById('options');
+// let dataBasesBtn = document.getElementById('databases-btn');
+// let optionsDropdown = document.getElementById('options');
 
-dataBasesBtn.addEventListener('click', () => {
-   document.getElementById("options").classList.toggle("showDropdown");
-   document.getElementById("databases-btn").classList.toggle("change-border");
-})
+// dataBasesBtn.addEventListener('click', () => {
+//    document.getElementById("options").classList.toggle("showDropdown");
+//    document.getElementById("databases-btn").classList.toggle("change-border");
+// })
 
-optionsDropdown.addEventListener('click', () => {
-  document.getElementById("options").classList.remove('showDropdown');
-})
+// optionsDropdown.addEventListener('click', () => {
+//   document.getElementById("options").classList.remove('showDropdown');
+// })
 
 //sorting by
-let sortingBtn = document.getElementById('sorting-btn');
-let sortingBy = document.getElementById('sorting-by');
+// let sortingBtn = document.getElementById('sorting-btn');
+// let sortingBy = document.getElementById('sorting-by');
 
-sortingBtn.addEventListener('click', () => {
-   document.getElementById("sorting-by").classList.toggle("showDropdown");
-   document.getElementById("sorting-btn").classList.toggle("change-border");
-})
+// sortingBtn.addEventListener('click', () => {
+//    document.getElementById("sorting-by").classList.toggle("showDropdown");
+//    document.getElementById("sorting-btn").classList.toggle("change-border");
+// })
 
-sortingBy.addEventListener('click', () => {
-  document.getElementById("sorting-by").classList.remove('showDropdown');
-});
+// sortingBy.addEventListener('click', () => {
+//   document.getElementById("sorting-by").classList.remove('showDropdown');
+// });
 
 

@@ -1,17 +1,14 @@
-export default function filter(){
-    const databasesBtn = document.getElementById('databases-btn');
-    const bases =  document.querySelectorAll('.content-hover');
-//     databasesBtn.addEventListener('click', ()=>{
-//         // alert('fvdf')
-//         let a = Array.from(bases);
-//         // a.forEach( function(element) {
-//         // element.classList.toggle('show-btn-delete');
-//     // })
-//     console.log(bases.value);
-
-// })
-    //     
-    //     })
-    // }
+document.getElementById("databases-btn").onchange = function() {
+    localStorage.setItem('databases-btn', document.getElementById("databases-btn").value);
 }
-filter();
+
+if (localStorage.getItem('databases-btn')) {
+    let savedValue = localStorage.getItem('databases-btn');
+    let option = document.querySelector('#databases-btn > option[value="' + savedValue + '"]');
+    if (option) {
+        option.selected = true;
+    }
+}
+
+
+
