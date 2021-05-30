@@ -3,35 +3,34 @@ import '../header/localization';
 import '../header/modalWindow';
 import '../helpers/mainPassword';
 import '../helpers/btnClearAll';
-import '../helpers/btnCreate';
+import { addFunction, createTableUnit } from  '../helpers/btnCreate';
 import '../helpers/btnDelete';
 import '../helpers/btnUpdate';
 import '../header/singoutBtn';
-import '../helpers/filtration'
-//dropdown databases
-// let dataBasesBtn = document.getElementById('databases-btn');
-// let optionsDropdown = document.getElementById('options');
+import '../helpers/filtration';
+import { getRequest, URL } from "../helpers/requests";
 
-// dataBasesBtn.addEventListener('click', () => {
-//    document.getElementById("options").classList.toggle("showDropdown");
-//    document.getElementById("databases-btn").classList.toggle("change-border");
-// })
 
-// optionsDropdown.addEventListener('click', () => {
-//   document.getElementById("options").classList.remove('showDropdown');
-// })
+const mainInit = () => {
+    const dbSelect = document.querySelector('#databases-btn');
+    const create = document.getElementById('create');
+    const createBtn = document.getElementById("create-btn")
+    getRequest(URL + dbSelect.value).then((data) => {
+        addFunction(data.message)
+    })
 
-//sorting by
-// let sortingBtn = document.getElementById('sorting-btn');
-// let sortingBy = document.getElementById('sorting-by');
+    create.addEventListener('click', () =>{
+        document.getElementById("modal-window-create").classList.toggle("show-create");
+    })
 
-// sortingBtn.addEventListener('click', () => {
-//    document.getElementById("sorting-by").classList.toggle("showDropdown");
-//    document.getElementById("sorting-btn").classList.toggle("change-border");
-// })
+    createBtn.addEventListener('click', createTableUnit)
 
-// sortingBy.addEventListener('click', () => {
-//   document.getElementById("sorting-by").classList.remove('showDropdown');
-// });
+dbSelect.addEventListener('change', (event) => {
+    getRequest(URL + event.target.value).then((data) => {
+        addFunction(data.message)
 
-console.log()
+    })
+})
+}
+mainInit()
+

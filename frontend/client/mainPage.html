@@ -75,7 +75,7 @@
             <div class="modal-clear__modal__container">
               <h2 class="modal-clear__modal__container--name">Clear all?</h2>
               <div class="modal-clear__modal__container__buttons">
-                <button class="modal-clear__modal__container__buttons--btn">Yes</button>
+                <button class="modal-clear__modal__container__buttons--btn" id ='yes-btn'>Yes</button>
                 <button class="modal-clear__modal__container__buttons--btn right" id="exit-clear">No</button>
               </div>
             </div>
@@ -91,7 +91,7 @@
                         <option value="postgresql">PostgreSQL</option>
                         <option value="neo4j">Neo4j</option>
                         <option value="mongodb">MongoDB</option>
-                        <option value="sqlite">SQLite</option>
+                        <option value="sqlite3">SQLite</option>
                     </select>
                     <!-- <button class="container-databases__dropdown--slct" id="databases-btn" value="mysql">MySQL<div class="arrow"></div></button>
                     <div class="container-databases__dropdown--content" id="options">
@@ -129,14 +129,14 @@
             </div>
             <div class="block-dropdownn__bases container-create" id="modal-window-create">
                 <label class="container-create--name" id="create-window">Create</label>
-                <input class="container-create--fields" placeholder="Enter first name*...">
-                <input class="container-create--fields" placeholder="Enter last name*...">
-                <input class="container-create--fields" placeholder="Enter age*...">
-                <input class="container-create--fields" placeholder="Enter city...">
-                <input class="container-create--fields" placeholder="+380yyxxxxxxx">
-                <input class="container-create--fields" placeholder="Enter email*...">
-                <input class="container-create--fields" placeholder="Enter company...">
-                <button class="container-create--btn">Create</button>
+                <input class="container-create--fields" id="field-first-name" placeholder="Enter first name*...">
+                <input class="container-create--fields" id="field-last-name" placeholder="Enter last name*...">
+                <input class="container-create--fields" id="field-age" placeholder="Enter age*...">
+                <input class="container-create--fields" id="field-city" placeholder="Enter city...">
+                <input class="container-create--fields" id="field-phone-number" placeholder="+380yyxxxxxxx">
+                <input class="container-create--fields" id="field-email" placeholder="Enter email*...">
+                <input class="container-create--fields" id="field-company" placeholder="Enter company...">
+                <button class="container-create--btn" id="create-btn">Create</button>
             </div>
         </div>
         <div class="content__block--right block">
@@ -169,24 +169,7 @@
                     <div class="block__main__name-fields__item --right-top" id="companyName">companyName</div>
                 </div>
                 <div class="block__main--table table" id="table">
-                    <div class="table__main row" data-del="delete">
-                        <div class="table__main__item"><input id="fields" class="table__main__item--inpt" value="dfb" type="text" disabled></div>
-                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
-                        <div class="table__main__item small"><input class="table__main__item--inpt" value="" type="text" disabled></div>
-                        <div class="table__main__item small"><input class="table__main__item--inpt" value="" type="text" disabled></div>
-                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
-                        <div class="table__main__item"><input class="table__main__item--inpt" value="" type="text" disabled></div>
-                        <div class="table__main__item"><div class="delete-persons" data-del="delete"></div><input class="table__main__item--inpt" value="" type="text" disabled></div>
-                    </div>
-                    <!-- <div class="table__main row" >
-                        <div class="table__main__item --left-bottom"></div>
-                        <div class="table__main__item"></div>
-                        <div class="table__main__item small"></div>
-                        <div class="table__main__item small"></div>
-                        <div class="table__main__item"></div>
-                        <div class="table__main__item"></div>
-                        <div class="table__main__item --right-bottom"><div class="delete-persons" data-del="delete"></div></div> 
-                    </div> -->
+
                 </div>
             </div>
         </div>
