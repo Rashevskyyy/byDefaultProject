@@ -304,5 +304,9 @@
     background: #35393b;
 }
 
-
+.row-active{
+    .table__main__item{
+        background-color: red;
+    }
+}
 

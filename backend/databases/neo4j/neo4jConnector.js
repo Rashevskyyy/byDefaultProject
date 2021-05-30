@@ -15,7 +15,7 @@ function getRequest (req, res) {
                 person.id = record._fields[0].identity.low
                 persons.push(person)
             });
-            return res.status(200).json(persons);
+            return res.status(200).json({ message: persons });
         }).then(() => session.close())
         .catch((error) => {
             session.close();
