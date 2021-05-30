@@ -49,7 +49,7 @@ class Mongo {
             this.#setResponse(res, 200, person);
         }
         catch (e) {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -57,10 +57,10 @@ class Mongo {
         try {
             const person = new PersonSchema({ user: req.user.userId, ...req.body });
             await person.save();
-            this.#setResponse(res, 200, "ЗАСЕТИЛОСЬ БЛЯТЬ");
+            this.#setResponse(res, 200, "Created person");
         }
         catch (e) {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -72,7 +72,7 @@ class Mongo {
             this.#setResponse(res, 200, person);
         }
         catch (e) {
-            this.#setResponse(res, 400, {message: "Что-то случилось"});
+            this.#setResponse(res, 400, {message: "Bad request"});
         }
     }
 
@@ -80,14 +80,14 @@ class Mongo {
         try {
             if (req.query.id === 'all') {
                 await PersonSchema.deleteMany({ user: req.user.userId });
-                return this.#setResponse(res, 200, "Удалилось");
+                return this.#setResponse(res, 200, "Deleted");
             }
             await PersonSchema.findByIdAndDelete({ _id: req.query.id });
             const person = await PersonSchema.find({ user: req.user.userId });
             this.#setResponse(res, 200, person);
         }
         catch {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 

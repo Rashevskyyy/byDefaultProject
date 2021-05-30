@@ -2,7 +2,7 @@
 
 ### Requests for registration ###
 
-- URL: http://localhost:2282/autorizationPage.html;
+- URL: http://localhost:5000/autorizationPage.html;
 - requestType: POST;
 - bodyType: raw/json;
 - requestBody:
@@ -80,7 +80,7 @@
 
 ### Requests for authorization ###
 
-- URL: http://localhost:2282/registrationPage.html;
+- URL: http://localhost:5000/registrationPage.html;
 - requestType: POST;
 - bodyType: raw/json;
 - requestBody:
@@ -137,7 +137,7 @@
 
 ### Requests for main page databases ###
 
-- URL: http://localhost:2282/mainPage.html
+- URL: http://localhost:5000/mainPage.html
 - requestType: POST;
 - bodyType: raw/json;
 - requestBody:

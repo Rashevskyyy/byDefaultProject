@@ -31,7 +31,7 @@ class PostgreSql {
             const result = await this.client.query(queryAll);
             this.#setResponse(res, 200, result.rows);
         } catch (err) {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -46,7 +46,7 @@ class PostgreSql {
             this.#setResponse(res, 200, result.rows);
         } catch (err) {
             console.log(err);
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -60,7 +60,7 @@ class PostgreSql {
             this.#setResponse(res, 200, result.fields);
         } catch (err) {
             console.log(err);
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -72,9 +72,9 @@ class PostgreSql {
             }
             const queryDelete = `DELETE FROM persons WHERE id=${req.query.id} AND user_id = '${userID}'`;
             await this.client.query(queryDelete);
-            this.#setResponse(res, 200, {message: "Удалилось"});
+            this.#setResponse(res, 200, {message: "Deleted"});
         } catch (err) {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -83,9 +83,9 @@ class PostgreSql {
         try {
             const queryClearAll = `DELETE FROM persons WHERE id_user = '${userID}'`;
             await this.client.query(queryClearAll);
-            this.#setResponse(res, 200, {message: "Удалилось"});
+            this.#setResponse(res, 200, {message: "Deleted"});
         } catch (err) {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 

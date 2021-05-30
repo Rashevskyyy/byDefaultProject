@@ -31,7 +31,7 @@ class MySql {
                 this.#setResponse(res, 200, result);
             });
         } catch (err) {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -47,7 +47,7 @@ class MySql {
             });
         } catch (err) {
             console.log(err);
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -64,7 +64,7 @@ class MySql {
             });
         } catch (err) {
             console.log(err);
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -81,7 +81,7 @@ class MySql {
                 this.#setResponse(res, 200, result);
             });
         } catch (err) {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
@@ -95,7 +95,7 @@ class MySql {
                 this.#setResponse(res, 200, result);
             });
         } catch (err) {
-            this.#setResponse(res, 403, {message: "Что-то случилось"});
+            this.#setResponse(res, 403, {message: "Bad request"});
         }
     }
 
