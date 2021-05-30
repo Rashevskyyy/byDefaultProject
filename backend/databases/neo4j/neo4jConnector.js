@@ -30,12 +30,12 @@ function create(req, res) {
     const userID = req.user.userId;
     session.run(`CREATE (n:Person {fName:'${person.fName}',lName: '${person.lName}', age:'${person.age}', city:'${person.city}', phoneNumber: '${person.phoneNumber}', email: '${person.email}', companyName: '${person.companyName}', user_id: '${userID}'})`).catch(err=>{
         console.log(err)
-    return res.status(400).json({ message: "Ошибка" })
+    return res.status(400).json({ message: "Bad request" })
     })
         .then((data)=>{
             console.log(data)
         session.close()
-            return res.status(200).json({ message: "Пользователь записан" });
+            return res.status(200).json({ message: "Created person" });
     })
 
 }
@@ -48,21 +48,21 @@ function deleteReq(req, res) {
         if (req.query.id === 'all') {
             session.run(`MATCH (n:Person) WHERE n.user_id = '${userId}' DETACH DELETE n`).catch(err=>{
                 console.log(err)
-                return res.status(400).json({ message: "Ошибка" });
+                return res.status(400).json({ message: "Bad request" });
             })
                 .then(()=>{
                     session.close()
-                    return res.status(200).json({ message: "Удалилось" });
+                    return res.status(200).json({ message: "Deleted" });
                 })
             return;
         }
     session.run(`MATCH (n:Person) WHERE n.user_id = '${userId}' AND id(n) = ${id} DETACH DELETE n`).catch(err=>{
         console.log(err)
-        return res.status(400).json({ message: "Ошибка" });
+        return res.status(400).json({ message: "Bad request" });
     })
         .then(()=>{
             session.close()
-            return res.status(200).json({ message: "Удалилось" });
+            return res.status(200).json({ message: "Deleted" });
         })
 }
 
@@ -74,11 +74,11 @@ function updateById(req, res) {
     const key = Object.keys(newField)[0]
     session.run(`MATCH (n:Person) WHERE n.user_id = '${userId} AND id(n) = ${id} SET n.${key} = '${newField[key]}'`).catch(err=>{
         console.log(err)
-        return res.status(400).json({ message: "Ошибка" });
+        return res.status(400).json({ message: "Bad request" });
     })
         .then(()=>{
             session.close()
-            return res.status(200).json({ message: "Удалилось" });
+            return res.status(200).json({ message: "Changed" });
         })
 }
 
