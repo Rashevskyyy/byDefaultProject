@@ -19,14 +19,3 @@ export const validatePassword = (password) => {
     }
     return true;
 };
-  
-// export const validateEmail = (email) => {
-//     if (!email) {
-//       return false;
-//     }
-//     const reg = new RegExp(/^[a-zA-Z0-9._-]+@[a-z0-9-]+.+.[a-z]{2,4}$/);
-//     if (!reg.test(email)) {
-//       return false;
-//     }
-//     return true;
-// };

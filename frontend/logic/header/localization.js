@@ -1,7 +1,5 @@
 import '../../scss/header.scss';
 
-
-//Localization
 let localizationSwitch = document.getElementById('localization-switch');
 let dropdownLang = document.getElementById('dropdown-languages');
 

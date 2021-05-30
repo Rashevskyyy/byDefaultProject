@@ -1,6 +1,4 @@
 import '../../scss/autorization.scss';
-// import '../header/localization';
-// import '../helpers/showPassword';
 import '../helpers/singInPassword'
 import {LOGURL, createOptions, postRequest} from "../helpers/requests"
 import {setCookie} from "../helpers/general"
@@ -32,6 +30,5 @@ const logInit = () => {
             fieldsForErrror.innerHTML = "Server is down, try again later";
         })
     })
-
 }
 logInit()

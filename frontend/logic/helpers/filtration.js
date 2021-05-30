@@ -1,4 +1,3 @@
-
 document.getElementById("databases-btn").onchange = function() {
     localStorage.setItem('databases-btn', document.getElementById("databases-btn").value);
 }
