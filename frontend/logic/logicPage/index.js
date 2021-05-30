@@ -1,5 +1,4 @@
 import '../../scss/homePage.scss';
-import '../helpers/chengeTopic'
 const singInPageBtn = document.getElementById('SignInButton_HomePage');
 const registrationPageBtn = document.getElementById('RegisterButton');
 

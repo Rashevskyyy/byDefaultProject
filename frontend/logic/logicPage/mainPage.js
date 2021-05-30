@@ -5,7 +5,6 @@ import '../helpers/mainPassword';
 import '../helpers/btnClearAll';
 import { addFunction, createTableUnit } from  '../helpers/btnCreate';
 import '../helpers/btnDelete';
-import '../helpers/btnUpdate';
 import '../header/singoutBtn';
 import '../helpers/filtration';
 import { getRequest, URL } from "../helpers/requests";
