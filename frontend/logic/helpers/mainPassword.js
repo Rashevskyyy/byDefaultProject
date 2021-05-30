@@ -1,6 +1,5 @@
 import '../../scss/modalWindow.scss'
 
-//show password in modal window
 const showPasword = document.getElementById('show-password-old');
 const input = document.getElementById('password-input-old');
 

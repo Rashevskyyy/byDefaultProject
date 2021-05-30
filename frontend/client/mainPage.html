@@ -93,16 +93,6 @@
                         <option value="mongodb">MongoDB</option>
                         <option value="sqlite3">SQLite</option>
                     </select>
-                    <!-- <button class="container-databases__dropdown--slct" id="databases-btn" value="mysql">MySQL<div class="arrow"></div></button>
-                    <div class="container-databases__dropdown--content" id="options">
-                        <div class="content-hover-bases" value="mysql">MySQL</div>
-                        <div class="content-hover-bases" value="postgresql">PostgreSQL</div>
-                        <div class="content-hover-bases" value="neo4j">Neo4j</div>
-                        <div class="content-hover-bases" value="mongodb">MongoDB</div>
-                        <div class="content-hover-bases" value="redis">Redis</div>
-                        <div class="content-hover-bases" value="cassandra">Cassandra</div>
-                        <div class="content-hover-bases" value="sqlite">SQLite</div>
-                    </div> -->
                 </div>
             </div>
             <div class="block-dropdownn__bases container-databases">
@@ -116,15 +106,6 @@
                         <option value="email">Email</option>
                         <option value="companyName">Company name</option>
                     </select>
-                    <!-- <button class="container-databases__dropdown--slct" id="sorting-btn" value="firstName">First name<div class="arrow"></div></button>
-                    <div class="container-databases__dropdown--content" id="sorting-by">
-                        <div class="content-hover" value="lastName">Last name</div>
-                        <div class="content-hover" value="age">Age</div>
-                        <div class="content-hover" value="city">City</div>
-                        <div class="content-hover" value="phoneNumber">Phone number</div>
-                        <div class="content-hover" value="email">Email</div>
-                        <div class="content-hover" value="companyName">Company name</div>
-                    </div> -->
                 </div>
             </div>
             <div class="block-dropdownn__bases container-create" id="modal-window-create">
@@ -136,7 +117,8 @@
                 <input class="container-create--fields" id="field-phone-number" placeholder="+380yyxxxxxxx">
                 <input class="container-create--fields" id="field-email" placeholder="Enter email*...">
                 <input class="container-create--fields" id="field-company" placeholder="Enter company...">
-                <button class="container-create--btn" id="create-btn">Create</button>
+                <div class="container-create--error" id="error-data"></div>
+                <button class="container-create--btn" id="create-btn">Create</button> 
             </div>
         </div>
         <div class="content__block--right block">
@@ -169,7 +151,6 @@
                     <div class="block__main__name-fields__item --right-top" id="companyName">companyName</div>
                 </div>
                 <div class="block__main--table table" id="table">
-
                 </div>
             </div>
         </div>

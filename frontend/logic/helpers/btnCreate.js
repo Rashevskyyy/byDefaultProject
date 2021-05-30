@@ -1,5 +1,5 @@
 import {getRequest, postRequest, URL, createOptions} from '../helpers/requests'
-
+import { validateFirstLastName, validationAge, validateEmail, validPhone} from '../../logic/logicPage/validation/validationMainCreate'
 export function addFunction(data){
     const block = document.getElementById('table');
     block.innerHTML = "";
@@ -32,6 +32,7 @@ export function createTableUnit() {
     const email = document.getElementById("field-email");
     const companyName = document.getElementById("field-company");
     const dbSelect = document.querySelector('#databases-btn');
+    const errorMessage = document.getElementById('error-data');
     const body = {
         fName: fName.value,
         lName: lName.value,
@@ -42,13 +43,27 @@ export function createTableUnit() {
         companyName: companyName.value
     }
     const options = createOptions(body);
-    postRequest(URL + dbSelect.value, options).then((data) => {
-        getRequest(URL + dbSelect.value).then((data) => {
-            addFunction(data.message)
-            clean({ fName, lName, age, city, phoneNumber, email, companyName })
-            document.getElementById("modal-window-create").classList.remove("show-create");
+    if(!validateFirstLastName(fName.value) || !validateFirstLastName(lName.value)){
+        errorMessage.innerHTML = "Error in the fName or lName";
+    } else if(!validationAge(age.value) || age.value === '0'){
+        errorMessage.innerHTML = "Error in the age";
+    } else if(!validateFirstLastName(city.value)){
+        errorMessage.innerHTML = "Error in the city";
+    } else if(!validPhone(phoneNumber.value)){
+        errorMessage.innerHTML = "Error in the phone";
+    } else if(!validateEmail(email.value)){
+        errorMessage.innerHTML = "Error in the email";
+    }else if(!validateFirstLastName(companyName.value)){
+        errorMessage.innerHTML = "Error in the company";
+    }else {
+        postRequest(URL + dbSelect.value, options).then((data) => {
+            getRequest(URL + dbSelect.value).then((data) => {
+                addFunction(data.message)
+                clean({ fName, lName, age, city, phoneNumber, email, companyName })
+                document.getElementById("modal-window-create").classList.remove("show-create");
+            })
         })
-    })
+    }
 }
 export const clean = (cleanObject) => { for (let key in cleanObject) { cleanObject[key].value = ''; } };
 
